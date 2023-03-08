@@ -11,11 +11,7 @@ function App() {
 
   return (
     <div>
-      {backendData === "" ? (
-        <p>Loading...</p>
-      ) : (
-        <p>{backendData}</p>
-      )}
+      <h1>Hello from team 9 also known as MizFits!</h1>
     </div>
   );
 }
