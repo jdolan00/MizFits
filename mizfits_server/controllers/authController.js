@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import User from '../models/user.js';
+import User from '../models/User.js';
 
 export const register = async (req, res) => {
     try {
@@ -8,7 +8,7 @@ export const register = async (req, res) => {
         const salt = await bcrypt.genSalt();
         const passwordHash = await bcrypt.hash(password, salt);
 
-        const newUser = new User ({
+        const newUser = new User({
             firstName,
             lastName,
             email,
@@ -33,7 +33,7 @@ export const login = async (req, res) => {
 
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
         delete user.password;
-        res.status(200).json({ token, user});
+        res.status(200).json({ token, user });
     } catch (error) {
         res.status(500).json(error);
     }
