@@ -10,7 +10,13 @@ import path from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/usersRoutes.js";
-
+//import postRoutes from "./routes/posts.js";
+import { register } from "./controllers/authController.js";
+//import { createPost } from "./controllers/posts.js";
+import { verifyToken } from "./middleware/auth.js";
+import User from "./models/User.js";
+//import Post from "./models/Post.js";
+import { users } from "./data/seedData.js";
 
 /* CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url);
@@ -24,6 +30,7 @@ app.use(morgan("common"));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
 /* FILE STORAGE */
 const storage = multer.diskStorage({
@@ -36,11 +43,60 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+// Create a new user document
+// const newUser = new User({
+//   firstName: 'John',
+//   lastName: 'Smith',
+//   email: 'john@example.com',
+//   password: 'password123'
+// });
+
+// // Save the user document to the database
+// newUser.save()
+//   .then(() => {
+//     console.log('User saved');
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   }); 
+
+
+// const firstName = form.querySelector('#first-name').value;
+//   const lastName = form.querySelector('#last-name').value;
+//   const email = form.querySelector('#email').value;
+//   const password = form.querySelector('#password').value;
+
+//   // Create new user object with user input
+//   const newUser = new User({
+//     firstName: firstName,
+//     lastName: lastName,
+//     email: email,
+//     password: password
+//   });
+
+//   // Save the user document to the database
+//   newUser.save()
+//     .then((user) => {
+//       console.log(`User ${user.firstName} ${user.lastName} saved`);
+//       form.reset(); // Clear the form inputs
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//     });
+// });
+
+
+app.post("/auth/register", register);
+//app.post("/posts", verifyToken, createPost);
+
+
 /* ROUTES */
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
+//app.use("/posts", postRoutes);
 
 /* MONGOOSE SETUP */
+//.connect("mongodb+srv://MizFitsUser:Mizzoufitness2023@cluster0.ialsaod.mongodb.net/sample_MizFit",
 const PORT = process.env.PORT || 6001;
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -55,3 +111,5 @@ mongoose
     // Post.insertMany(posts);
   })
   .catch((error) => console.log(`${error} did not connect`));
+
+
