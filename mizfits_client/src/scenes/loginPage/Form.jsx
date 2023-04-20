@@ -52,30 +52,6 @@ const Form = () => {
   const isLogin = pageType === "login";
   const isRegister = pageType === "register";
 
-  // const register = async (values, onSubmitProps) => {
-  //   try {
-  //     const savedUserResponse = await fetch("http://localhost:3001/auth/register",{
-  //         method: "POST",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify(values),
-  //     });
-  
-  //     if (savedUserResponse.ok) {
-  //       const savedUser = await savedUserResponse.json();
-  //       onSubmitProps.resetForm();
-  
-  //       if (savedUser) {
-  //         setPageType("login");
-  //       }
-  //     } else {
-  //       throw new Error(`HTTP error! status: ${savedUserResponse.status}`);
-  //     }
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   }
-  // };
-
-
   const register = async (values, onSubmitProps) => {
     const savedUserResponse = await fetch("http://localhost:3001/auth/register", {
       method: "POST",
