@@ -7,23 +7,20 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+//import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setLogin } from "state";
-import Dropzone from "react-dropzone";
-import FlexBetween from "components/FlexBetween";
+import setLogin from "state"; 
+//import Dropzone from "react-dropzone";
+//import FlexBetween from "components/FlexBetween";
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
   email: yup.string().email("invalid email").required("required"),
-  password: yup.string().required("required"),
-  location: yup.string().required("required"),
-  occupation: yup.string().required("required"),
-  picture: yup.string().required("required"),
+  password: yup.string().required("required")
 });
 
 const loginSchema = yup.object().shape({
@@ -55,30 +52,87 @@ const Form = () => {
   const isLogin = pageType === "login";
   const isRegister = pageType === "register";
 
-  const register = async (values, onSubmitProps) => {
-    // this allows us to send form info with image
-    const formData = new FormData();
-    for (let value in values) {
-      formData.append(value, values[value]);
-    }
-    formData.append("picturePath", values.picture.name);
+  // const register = async (values, onSubmitProps) => {
+  //   try {
+  //     const savedUserResponse = await fetch("http://localhost:3001/auth/register",{
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify(values),
+  //     });
+  
+  //     if (savedUserResponse.ok) {
+  //       const savedUser = await savedUserResponse.json();
+  //       onSubmitProps.resetForm();
+  
+  //       if (savedUser) {
+  //         setPageType("login");
+  //       }
+  //     } else {
+  //       throw new Error(`HTTP error! status: ${savedUserResponse.status}`);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   }
+  // };
 
-    const savedUserResponse = await fetch(
-      "http://localhost:3001/auth/register",
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
+
+  const register = async (values, onSubmitProps) => {
+    const savedUserResponse = await fetch("http://localhost:3001/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    });
     const savedUser = await savedUserResponse.json();
     onSubmitProps.resetForm();
-
+  
     if (savedUser) {
       setPageType("login");
     }
   };
+  
 
-  const login = async (values, onSubmitProps) => {
+  // const login = async (values, onSubmitProps) => {
+  //   const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(values),
+  //   });
+  //   const loggedIn = await loggedInResponse.json();
+  //   onSubmitProps.resetForm();
+  //   if (loggedIn) {
+  //     dispatch(
+  //       setLogin({
+  //         user: loggedIn.user,
+  //         token: loggedIn.token,
+  //       })
+  //     );
+  //     navigate("/home");
+  //   }
+  // };
+
+  // const login = (values, onSubmitProps) => {
+  //   return async (dispatch) => {
+  //     const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(values),
+  //     });
+  //     const loggedIn = await loggedInResponse.json();
+  //     onSubmitProps.resetForm();
+  //     if (loggedIn) {
+  //       dispatch(
+  //         setLogin({
+  //           user: loggedIn.user,
+  //           token: loggedIn.token,
+  //         })
+  //       );
+  //       navigate("/home");
+  //     }
+  //   };
+  // };
+  
+
+  const login = async (values, onSubmitProps, setLogin) => {
     const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -86,16 +140,12 @@ const Form = () => {
     });
     const loggedIn = await loggedInResponse.json();
     onSubmitProps.resetForm();
-    if (loggedIn) {
-      dispatch(
-        setLogin({
-          user: loggedIn.user,
-          token: loggedIn.token,
-        })
-      );
-      navigate("/home");
+  
+    if (loggedIn.user && loggedIn.token) {
+      setLogin({ user: loggedIn.user, token: loggedIn.token });
     }
   };
+  
 
   const handleFormSubmit = async (values, onSubmitProps) => {
     if (isLogin) await login(values, onSubmitProps);
@@ -115,7 +165,7 @@ const Form = () => {
         handleBlur,
         handleChange,
         handleSubmit,
-        setFieldValue,
+        //setFieldValue,
         resetForm,
       }) => (
         <form onSubmit={handleSubmit}>
@@ -133,11 +183,9 @@ const Form = () => {
                   label="First Name"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.firstName}
+                  value={values.firstName ?? ""}
                   name="firstName"
-                  error={
-                    Boolean(touched.firstName) && Boolean(errors.firstName)
-                  }
+                  error={Boolean(touched.firstName) && Boolean(errors.firstName)}
                   helperText={touched.firstName && errors.firstName}
                   sx={{ gridColumn: "span 2" }}
                 />
@@ -145,7 +193,7 @@ const Form = () => {
                   label="Last Name"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.lastName}
+                  value={values.lastName ?? ""}
                   name="lastName"
                   error={Boolean(touched.lastName) && Boolean(errors.lastName)}
                   helperText={touched.lastName && errors.lastName}
