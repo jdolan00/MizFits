@@ -10,13 +10,13 @@ import path from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/usersRoutes.js";
-//import postRoutes from "./routes/posts.js";
+import postRoutes from "./routes/postsRoutes.js";
 import { register } from "./controllers/authController.js";
-//import { createPost } from "./controllers/posts.js";
+import { createPost } from "./controllers/postController.js";
 import { verifyToken } from "./middleware/auth.js";
 import User from "./models/User.js";
 //import Post from "./models/Post.js";
-import { users } from "./data/seedData.js";
+//import { users } from "./data/seedData.js";
 
 /* CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url);
@@ -87,13 +87,13 @@ const upload = multer({ storage });
 
 
 app.post("/auth/register", register);
-//app.post("/posts", verifyToken, createPost);
+app.post("/posts", verifyToken, createPost);
 
 
 /* ROUTES */
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
-//app.use("/posts", postRoutes);
+app.use("/posts", postRoutes);
 
 /* MONGOOSE SETUP */
 //.connect("mongodb+srv://MizFitsUser:Mizzoufitness2023@cluster0.ialsaod.mongodb.net/sample_MizFit",
@@ -105,11 +105,22 @@ mongoose
   })
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
-
+    console.log('Connected to database')
     /* ADD DATA ONE TIME */
     // User.insertMany(users);
     // Post.insertMany(posts);
   })
   .catch((error) => console.log(`${error} did not connect`));
 
+  app.get('/api/users',(req,res,next)=>{
+    User.find().then(documents=>{
+      console.log(documents)
+      res.status(200).json({
+        message:"fetched data",
+        users:documents
 
+      })
+
+    })
+    next()
+    })
