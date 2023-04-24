@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Bolt } from "@mui/icons-material";
+import { Bolt, CottageOutlined, FitnessCenterOutlined, PersonOutlineOutlined } from "@mui/icons-material";
+
 
 const Navbar = () => {
   return (
@@ -11,7 +12,7 @@ const Navbar = () => {
       <ul style={styles.navbarList}>
         <li style={styles.navbarItem}>
           <Link to="/" style={styles.navbarLink}>
-            Home
+          <CottageOutlined style={styles.icon} />
           </Link>
         </li>
         <li style={styles.navbarItem}>
@@ -21,12 +22,12 @@ const Navbar = () => {
         </li>
         <li style={styles.navbarItem}>
           <Link to="/profile" style={styles.navbarLink}>
-            Profile
+          <PersonOutlineOutlined style={styles.icon} /> 
           </Link>
         </li>
         <li style={styles.navbarItem}>
           <Link to="/workout" style={styles.navbarLink}>
-            Workout
+          <FitnessCenterOutlined style={styles.icon} />
           </Link>
         </li>
       </ul>
@@ -57,7 +58,7 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "50%",
+    width: "90%",
     height: "60px",
   },
   icon: {
