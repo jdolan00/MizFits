@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Bolt, CottageOutlined, FitnessCenterOutlined, PersonOutlineOutlined } from "@mui/icons-material";
+import { Bolt, CottageOutlined, FitnessCenterOutlined, PersonOutlineOutlined, InfoOutlined } from "@mui/icons-material";
 
 
 const Navbar = () => {
@@ -33,7 +33,7 @@ const Navbar = () => {
       </ul>
       <div style={styles.bottomLink}>
         <Link to="/about" style={styles.bottomLinkText}>
-          About
+        <InfoOutlined style={styles.icon} /> 
         </Link>
       </div>
     </nav>
