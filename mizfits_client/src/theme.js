@@ -75,31 +75,51 @@ export const colorTokens = {
             }),
       },
       typography: {
-        fontFamily: ["Rubik", "sans-serif"].join(","),
+        fontFamily: ["Archivo", "sans-serif"].join(","),
         fontSize: 12,
         h1: {
-          fontFamily: ["Rubik", "sans-serif"].join(","),
+          fontFamily: ["Archivo", "sans-serif"].join(","),
           fontSize: 40,
         },
         h2: {
-          fontFamily: ["Rubik", "sans-serif"].join(","),
+          fontFamily: ["Archivo", "sans-serif"].join(","),
           fontSize: 32,
         },
         h3: {
-          fontFamily: ["Rubik", "sans-serif"].join(","),
+          fontFamily: ["Archivo", "sans-serif"].join(","),
           fontSize: 24,
         },
         h4: {
-          fontFamily: ["Rubik", "sans-serif"].join(","),
+          fontFamily: ["Archivo", "sans-serif"].join(","),
           fontSize: 20,
         },
         h5: {
-          fontFamily: ["Rubik", "sans-serif"].join(","),
+          fontFamily: ["Archivo", "sans-serif"].join(","),
           fontSize: 16,
         },
         h6: {
-          fontFamily: ["Rubik", "sans-serif"].join(","),
+          fontFamily: ["Archivo", "sans-serif"].join(","),
           fontSize: 14,
+        },
+        subtitle1: {
+          fontWeight: 500,
+          fontSize: "1rem",
+          lineHeight: 1,
+        },
+        body1: {
+          fontWeight: 400,
+          fontSize: "1rem",
+          lineHeight: 1.2,
+        },
+        body2: {
+          fontWeight: 400,
+          fontSize: "0.8rem",
+          lineHeight: 1,
+        },
+        caption: {
+          fontWeight: 400,
+          fontSize: "0.8rem",
+          lineHeight: 1,
         },
       },
     };
