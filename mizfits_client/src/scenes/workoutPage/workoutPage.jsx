@@ -1,23 +1,16 @@
 import * as React from "react";
 import {
   AppBar,
-  // Button,
-  // CardActions,
-  // Card,
-  // CardContent,
-  // CardMedia,
   CssBaseline,
   Grid,
   Box,
   Toolbar,
   Typography,
   Container,
-  // Link,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { CardBase } from "components/CardBase";
 import { Footer } from "components/Footer";
-import { Link } from 'react-router-dom';
 
 const theme = createTheme({
   components: {

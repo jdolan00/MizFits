@@ -9,7 +9,6 @@ import {
   Container,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { CardBase } from "components/CardBase";
 import { Footer } from "components/Footer";
 
 const MondayTable = () => {
@@ -42,10 +41,10 @@ const MondayTable = () => {
     ];
   
     return (
-      <table style={{ backgroundColor: "white", borderCollapse: "collapse", border: "1px solid black", borderRadius: "32pt" }}>
+      <table style={{ backgroundColor: "white", borderCollapse: "collapse", border: "0px solid black", borderRadius: "32pt" }}>
         <thead>
           <tr>
-            <th style={{ border: "1px solid black", padding: "10px" }}>Workout</th>
+            <th style={{ border: "1px solid black", padding: "10px", borderRadius: "32pt" }}>Workout</th>
             <th style={{ border: "1px solid black", padding: "10px" }}>Reps</th>
             <th style={{ border: "1px solid black", padding: "10px" }}>Rest</th>
           </tr>
