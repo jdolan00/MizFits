@@ -17,6 +17,7 @@ import {
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { CardBase } from "components/CardBase";
 import { Footer } from "components/Footer";
+import { Link } from 'react-router-dom';
 
 const theme = createTheme({
   components: {

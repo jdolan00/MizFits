@@ -11,6 +11,7 @@ import HomePage from './scenes/homePage/homePage';
 import LoginPage from './scenes/loginPage/LogInPage';
 import ProfilePage from './scenes/profilePage/ProfilePage';
 import WorkoutPage from './scenes/workoutPage/workoutPage';
+import WorkoutPlans from './scenes/workoutPage/Workoutplans';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/workout" element={<WorkoutPage />} />
+        <Route path="/routine" element={<WorkoutPlans />} />
       </Routes>
     </BrowserRouter>
   );
