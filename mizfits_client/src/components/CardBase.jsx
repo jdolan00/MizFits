@@ -11,13 +11,13 @@ import {
 
 export function CardBase(props) {
     return(
-        <Grid item key={Card} xs={3} sm={6} md={4}>
+        <Grid item key={Card} md={4}>
         <Card sx={{ borderRadius: "16px" }}>
           <CardMedia
             component="img"
             image={props.img}
           />
-          <CardContent sx={{ flexGrow: 1 }}>
+          <CardContent>
             <Typography gutterBottom variant="h5" component="h2" >
               {props.days} 
             </Typography>
