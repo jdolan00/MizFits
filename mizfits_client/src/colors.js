@@ -4,7 +4,7 @@ export const colors = {
       black: "#000",
     },
 
-    pinkRed: "#FEDD69",
+    pinkRed: "#FE6969",
     orange: "#FFAE4F",
     yellow: "#FEDD69",
     lightYellow: "#FFE793",
