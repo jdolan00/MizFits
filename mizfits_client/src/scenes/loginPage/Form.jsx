@@ -12,7 +12,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import setLogin from "state"; 
+import { setLogin } from "state/index.js";
 
 //import Dropzone from "react-dropzone";
 //import FlexBetween from "components/FlexBetween";
@@ -34,9 +34,6 @@ const initialValuesRegister = {
   lastName: "",
   email: "",
   password: "",
-  location: "",
-  occupation: "",
-  picture: "",
 };
 
 const initialValuesLogin = {
@@ -61,12 +58,12 @@ const Form = () => {
     });
     const savedUser = await savedUserResponse.json();
     onSubmitProps.resetForm();
-  
+
     if (savedUser) {
       setPageType("login");
     }
   };
-  
+
 
   // const login = async (values, onSubmitProps) => {
   //   const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
@@ -107,7 +104,7 @@ const Form = () => {
   //     }
   //   };
   // };
-  
+
 
   // const login = async (values, onSubmitProps, setLogin) => {
   //   const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
@@ -117,7 +114,7 @@ const Form = () => {
   //   });
   //   const loggedIn = await loggedInResponse.json();
   //   onSubmitProps.resetForm();
-  
+
   //   if (loggedIn.user && loggedIn.token) {
   //     setLogin({
   //       user: loggedIn.user, 
@@ -128,24 +125,28 @@ const Form = () => {
   // };
 
   const login = async (values, onSubmitProps) => {
-    const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
-    });
-    const loggedIn = await loggedInResponse.json();
-    onSubmitProps.resetForm();
-    if (loggedIn) {
-      dispatch(
-        setLogin({
-          user: loggedIn.user,
-          token: loggedIn.token,
-        })
-      );
-      navigate("/home");
+    try {
+      const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const loggedIn = await loggedInResponse.json();
+      onSubmitProps.resetForm();
+      if (loggedIn) {
+        dispatch(
+          setLogin({
+            user: loggedIn.user,
+            token: loggedIn.token,
+          })
+        );
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("An error occurred while logging in:", error);
     }
   };
-  
+
 
   const handleFormSubmit = async (values, onSubmitProps) => {
     if (isLogin) await login(values, onSubmitProps);
