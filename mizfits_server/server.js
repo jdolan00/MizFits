@@ -7,9 +7,9 @@ import multer from "multer";
 import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
-import session from "express-session";
-import cookieParser from 'cookie-parser';
-import MongoStore from 'connect-mongo';
+// import session from "express-session";
+// import cookieParser from 'cookie-parser';
+// DO NOT REMOVE ABOVE IMPORTS, these are to be added
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/usersRoutes.js";
@@ -96,3 +96,4 @@ app.get('/api/workouts', async (req, res) => {
 });
 
 /* COOKIE CONFIGURATION */
+// Cookie configuration to be added, currently causing web console warnings, nothing site breaking, but could pose potential security flaw
