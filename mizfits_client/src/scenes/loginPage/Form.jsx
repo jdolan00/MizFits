@@ -51,7 +51,7 @@ const Form = () => {
   const isRegister = pageType === "register";
 
   const register = async (values, onSubmitProps) => {
-    const savedUserResponse = await fetch("http://localhost:3001/auth/register", {
+    const savedUserResponse = await fetch("mizfits.azurewebsites.net/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
@@ -126,7 +126,7 @@ const Form = () => {
 
   const login = async (values, onSubmitProps) => {
     try {
-      const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
+      const loggedInResponse = await fetch("mizfits.azurewebsites.net/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
