@@ -30,6 +30,11 @@ const Navbar = () => {
           <FitnessCenterOutlined style={styles.icon} />
           </Link>
         </li>
+        <li style={styles.navbarItem}>
+          <Link to="/workouts" style={styles.navbarLink}>
+          <FitnessCenterOutlined style={styles.icon} />
+          </Link>
+        </li>
       </ul>
       <div style={styles.bottomLink}>
         <Link to="/about" style={styles.bottomLinkText}>

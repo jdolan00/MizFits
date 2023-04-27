@@ -20,8 +20,18 @@ import { setLogin } from "state/index.js";
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
-  email: yup.string().email("invalid email").required("required"),
-  password: yup.string().required("required")
+  email: yup
+  .string()
+  .email("Invalid email format")
+  .required("required")
+  .matches(
+    /^[a-zA-Z0-9]+@umsystem\.edu$/,
+    "Invalid email format, must be a valid @umsystem.edu email"
+  ),
+password: yup
+  .string()
+  .required("required")
+  .min(8, "Password must be at least 8 characters long"),
 });
 
 const loginSchema = yup.object().shape({
@@ -64,65 +74,6 @@ const Form = () => {
     }
   };
 
-
-  // const login = async (values, onSubmitProps) => {
-  //   const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(values),
-  //   });
-  //   const loggedIn = await loggedInResponse.json();
-  //   onSubmitProps.resetForm();
-  //   if (loggedIn) {
-  //     dispatch(
-  //       setLogin({
-  //         user: loggedIn.user,
-  //         token: loggedIn.token,
-  //       })
-  //     );
-  //     navigate("/home");
-  //   }
-  // };
-
-  // const login = (values, onSubmitProps) => {
-  //   return async (dispatch) => {
-  //     const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify(values),
-  //     });
-  //     const loggedIn = await loggedInResponse.json();
-  //     onSubmitProps.resetForm();
-  //     if (loggedIn) {
-  //       dispatch(
-  //         setLogin({
-  //           user: loggedIn.user,
-  //           token: loggedIn.token,
-  //         })
-  //       );
-  //       navigate("/home");
-  //     }
-  //   };
-  // };
-
-
-  // const login = async (values, onSubmitProps, setLogin) => {
-  //   const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(values),
-  //   });
-  //   const loggedIn = await loggedInResponse.json();
-  //   onSubmitProps.resetForm();
-
-  //   if (loggedIn.user && loggedIn.token) {
-  //     setLogin({
-  //       user: loggedIn.user, 
-  //       token: loggedIn.token 
-  //     });
-  //     navigate("/home");
-  //   }
-  // };
 
   const login = async (values, onSubmitProps) => {
     try {
