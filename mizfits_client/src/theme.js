@@ -124,3 +124,62 @@ export const colorTokens = {
       },
     };
   };
+
+  export const Navstyles = {
+    navbar: {
+      backgroundColor: "#FEDD69",
+      position: "fixed",
+      top: 0,
+      left: 0,
+      height: "100%",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "flex-start",
+      padding: "10px 20px",
+      zIndex: 999,
+    },
+    iconContainer: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "90%",
+      height: "60px",
+    },
+    icon: {
+      color: "black",
+      fontSize: "60px",
+    },
+    navbarList: {
+      display: "flex",
+      flexDirection: "column",
+      listStyle: "none",
+      margin: 0,
+      padding: 0,
+    },
+    navbarItem: {
+      margin: "20px 0",
+    },
+    navbarLink: {
+      color: "black",
+      textDecoration: "none",
+      fontSize: "20px",
+      fontWeight: "bold",
+      textTransform: "uppercase",
+      letterSpacing: "1px",
+    },
+    bottomLink: {
+      position: "absolute",
+      bottom: "10%",
+      left: "20px",
+    },
+    bottomLinkText: {
+      color: "black",
+      textDecoration: "none",
+      fontSize: "20px",
+      fontWeight: "bold",
+      textTransform: "uppercase",
+      letterSpacing: "1px",
+    },
+  };
+  

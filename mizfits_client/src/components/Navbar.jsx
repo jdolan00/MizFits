@@ -1,101 +1,43 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Bolt, CottageOutlined, FitnessCenterOutlined, PersonOutlineOutlined, InfoOutlined } from "@mui/icons-material";
-
+import {Navstyles} from "../theme";
 
 const Navbar = () => {
   return (
-    <nav style={styles.navbar}>
-      <div style={styles.iconContainer}>
-        <Bolt style={styles.icon} />
+    <nav style={Navstyles.navbar}>
+      <div style={Navstyles.iconContainer}>
+        <Bolt style={Navstyles.icon} />
       </div>
-      <ul style={styles.navbarList}>
-        <li style={styles.navbarItem}>
-          <Link to="/" style={styles.navbarLink}>
-          <CottageOutlined style={styles.icon} />
+      <ul style={{ ...Navstyles.navbarList, flexDirection: "column" }}>
+        <li style={Navstyles.navbarItem}>
+          <Link to="/" style={Navstyles.navbarLink}>
+          <CottageOutlined style={Navstyles.icon} />
           </Link>
         </li>
-        <li style={styles.navbarItem}>
-          <Link to="/login" style={styles.navbarLink}>
+        <li style={Navstyles.navbarItem}>
+          <Link to="/login" style={Navstyles.navbarLink}>
             Login
           </Link>
         </li>
-        <li style={styles.navbarItem}>
-          <Link to="/profile" style={styles.navbarLink}>
-          <PersonOutlineOutlined style={styles.icon} /> 
+        <li style={Navstyles.navbarItem}>
+          <Link to="/profile" style={Navstyles.navbarLink}>
+          <PersonOutlineOutlined style={Navstyles.icon} /> 
           </Link>
         </li>
-        <li style={styles.navbarItem}>
-          <Link to="/workout" style={styles.navbarLink}>
-          <FitnessCenterOutlined style={styles.icon} />
+        <li style={Navstyles.navbarItem}>
+          <Link to="/workout" style={Navstyles.navbarLink}>
+          <FitnessCenterOutlined style={Navstyles.icon} />
           </Link>
         </li>
       </ul>
-      <div style={styles.bottomLink}>
-        <Link to="/about" style={styles.bottomLinkText}>
-        <InfoOutlined style={styles.icon} /> 
+      <div style={Navstyles.bottomLink}>
+        <Link to="/about" style={Navstyles.bottomLinkText}>
+        <InfoOutlined style={Navstyles.icon} /> 
         </Link>
       </div>
     </nav>
   );
-};
-
-const styles = {
-  navbar: {
-    backgroundColor: "#FEDD69",
-    position: "fixed",
-    top: 0,
-    left: 0,
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    padding: "10px 20px",
-    zIndex: 999,
-  },
-  iconContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "90%",
-    height: "60px",
-  },
-  icon: {
-    color: "black",
-    fontSize: "60px",
-  },
-  navbarList: {
-    display: "flex",
-    flexDirection: "column",
-    listStyle: "none",
-    margin: 0,
-    padding: 0,
-  },
-  navbarItem: {
-    margin: "20px 0",
-  },
-  navbarLink: {
-    color: "black",
-    textDecoration: "none",
-    fontSize: "20px",
-    fontWeight: "bold",
-    textTransform: "uppercase",
-    letterSpacing: "1px",
-  },
-  bottomLink: {
-    position: "absolute",
-    bottom: "10%",
-    left: "20px",
-  },
-  bottomLinkText: {
-    color: "black",
-    textDecoration: "none",
-    fontSize: "20px",
-    fontWeight: "bold",
-    textTransform: "uppercase",
-    letterSpacing: "1px",
-  },
 };
 
 export default Navbar;
