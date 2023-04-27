@@ -184,7 +184,7 @@ export const mobileNavstyles = {
     alignItems: "center",
     backgroundColor: "#FEDD69",
     padding: "10px 20px",
-    height: "90px",
+    height: "50px",
   },
   navbarList: {
     display: "flex",

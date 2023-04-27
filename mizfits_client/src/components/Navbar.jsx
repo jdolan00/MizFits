@@ -12,140 +12,51 @@ import { desktopNavstyles, mobileNavstyles } from "../theme";
 
 const Navbar = () => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
+  const navbarItemStyle = isNonMobileScreens
+    ? desktopNavstyles.navbarItem
+    : mobileNavstyles.navbarItem;
+  const navbarLinkStyle = isNonMobileScreens
+    ? desktopNavstyles.navbarLink
+    : mobileNavstyles.navbarLink;
+  const iconStyle = isNonMobileScreens
+    ? desktopNavstyles.icon
+    : mobileNavstyles.icon;
+
   return (
     <nav
       style={
         isNonMobileScreens ? desktopNavstyles.navbar : mobileNavstyles.navbar
       }
     >
-      <div
-        style={
-          isNonMobileScreens
-            ? desktopNavstyles.navbarLink
-            : desktopNavstyles.navbarLink
-        }
-      >
-        <Bolt style={desktopNavstyles.icon} />
+      <div style={navbarLinkStyle}>
+        <Bolt style={iconStyle} />
         <Typography>Mizfits</Typography>
       </div>
-      <ul
-        style={
-          isNonMobileScreens
-            ? desktopNavstyles.navbarList
-            : mobileNavstyles.navbarList
-        }
-      >
-        <div
-          style={
-            isNonMobileScreens
-              ? desktopNavstyles.navbarItem
-              : desktopNavstyles.navbarItem
-          }
-        >
-          <Link
-            to="/"
-            style={
-              isNonMobileScreens
-                ? desktopNavstyles.navbarLink
-                : desktopNavstyles.navbarLink
-            }
-          >
-            <CottageOutlined
-              style={
-                isNonMobileScreens
-                  ? desktopNavstyles.icon
-                  : desktopNavstyles.icon
-              }
-            />
+      <ul style={isNonMobileScreens ? desktopNavstyles.navbarList : mobileNavstyles.navbarList}>
+        <div style={navbarItemStyle}>
+          <Link to="/" style={navbarLinkStyle}>
+            <CottageOutlined style={iconStyle} />
           </Link>
         </div>
-        <div
-          style={
-            isNonMobileScreens
-              ? desktopNavstyles.navbarItem
-              : desktopNavstyles.navbarItem
-          }
-        >
-          <Link
-            to="/login"
-            style={
-              isNonMobileScreens
-                ? desktopNavstyles.navbarLink
-                : desktopNavstyles.navbarLink
-            }
-          >
+        <div style={navbarItemStyle}>
+          <Link to="/login" style={navbarLinkStyle}>
             Login
           </Link>
         </div>
-        <div
-          style={
-            isNonMobileScreens
-              ? desktopNavstyles.navbarItem
-              : desktopNavstyles.navbarItem
-          }
-        >
-          <Link
-            to="/profile"
-            style={
-              isNonMobileScreens
-                ? desktopNavstyles.navbarLink
-                : desktopNavstyles.navbarLink
-            }
-          >
-            <PersonOutlineOutlined
-              style={
-                isNonMobileScreens
-                  ? desktopNavstyles.icon
-                  : desktopNavstyles.icon
-              }
-            />
+        <div style={navbarItemStyle}>
+          <Link to="/profile" style={navbarLinkStyle}>
+            <PersonOutlineOutlined style={iconStyle} />
           </Link>
         </div>
-        <div
-          style={
-            isNonMobileScreens
-              ? desktopNavstyles.navbarItem
-              : desktopNavstyles.navbarItem
-          }
-        >
-          <Link
-            to="/workout"
-            style={
-              isNonMobileScreens
-                ? desktopNavstyles.navbarLink
-                : desktopNavstyles.navbarLink
-            }
-          >
-            <FitnessCenterOutlined
-              style={
-                isNonMobileScreens
-                  ? desktopNavstyles.icon
-                  : desktopNavstyles.icon
-              }
-            />
+        <div style={navbarItemStyle}>
+          <Link to="/workout" style={navbarLinkStyle}>
+            <FitnessCenterOutlined style={iconStyle} />
           </Link>
         </div>
       </ul>
-      <div
-        style={
-          isNonMobileScreens
-            ? desktopNavstyles.navbarItem
-            : desktopNavstyles.navbarItem
-        }
-      >
-        <Link
-          to="/about"
-          style={
-            isNonMobileScreens
-              ? desktopNavstyles.navbarLink
-              : desktopNavstyles.navbarLink
-          }
-        >
-          <InfoOutlined
-            style={
-              isNonMobileScreens ? desktopNavstyles.icon : desktopNavstyles.icon
-            }
-          />
+      <div style={navbarItemStyle}>
+        <Link to="/about" style={navbarLinkStyle}>
+          <InfoOutlined style={iconStyle} />
         </Link>
       </div>
     </nav>
