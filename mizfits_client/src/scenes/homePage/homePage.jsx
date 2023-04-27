@@ -1,9 +1,7 @@
 import * as React from "react";
 import {
-  AppBar,
   CssBaseline,
   Box,
-  Toolbar,
   Typography,
   Container,
 } from "@mui/material";
@@ -26,16 +24,6 @@ export default function HomePage() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar
-        position="relative"
-        style={{ background: "transparent", boxShadow: "none" }}
-      >
-        <Toolbar>
-          <Typography variant="h6" color="black" noWrap>
-            Mizfits
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <main>
         <Box>
           <Container maxWidth="sm">

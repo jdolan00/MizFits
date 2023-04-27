@@ -1,43 +1,14 @@
 import * as React from "react";
-import {
-  AppBar,
-  CssBaseline,
-  Grid,
-  Box,
-  Toolbar,
-  Typography,
-  Container,
-} from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import {CssBaseline, Grid, Box, Typography, Container,} from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
 import { CardBase } from "components/CardBase";
 import { Footer } from "components/Footer";
-
-const theme = createTheme({
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        body: {
-          backgroundImage: `linear-gradient(90deg, #FE6969, #FFAE4F , #FFE793 )`,
-        },
-      },
-    },
-  },
-});
+import {theme} from "theme"
 
 export default function Album() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar
-        position="relative"
-        style={{ background: "transparent", boxShadow: "none" }}
-      >
-        <Toolbar>
-          <Typography variant="h6" color="black" noWrap>
-            Mizfits
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <main>
         <Box>
           <Container maxWidth="sm">
@@ -55,7 +26,7 @@ export default function Album() {
           <Grid
             container
             spacing={4}
-            sx={{ display: "flex", flexWrap: "wrap" }}
+            sx={{ display: "flex", flexWrap: "wrap", marginBottom: "10rem"  }}
           >
             <CardBase
               img="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?cs=srgb&dl=pexels-victor-freitas-841130.jpg&fm=jpg"
@@ -72,7 +43,7 @@ export default function Album() {
               button2="Weightlifting"
             ></CardBase>
             <CardBase
-              img="https://images.pexels.com/photos/39671/physiotherapy-weight-training-dumbbell-exercise-balls-39671.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              img="https://images.pexels.com/photos/3927387/pexels-photo-3927387.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               days="Build your own"
               subtext="Skip the recommended workouts"
               button1="Create"

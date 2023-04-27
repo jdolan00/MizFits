@@ -1,3 +1,16 @@
+import { createTheme} from "@mui/material/styles";
+
+export const theme = createTheme({
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundImage: `linear-gradient(90deg, #FE6969, #FFAE4F , #FFE793 )`,
+        },
+      },
+    },
+  },
+});
 // color design tokens export
 export const colorTokens = {
     grey: {
@@ -126,60 +139,78 @@ export const colorTokens = {
   };
 
   export const Navstyles = {
-    navbar: {
-      backgroundColor: "#FEDD69",
-      position: "fixed",
-      top: 0,
-      left: 0,
-      height: "100%",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "flex-start",
-      padding: "10px 20px",
-      zIndex: 999,
-    },
-    iconContainer: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      width: "90%",
-      height: "60px",
-    },
-    icon: {
-      color: "black",
-      fontSize: "60px",
-    },
-    navbarList: {
-      display: "flex",
-      flexDirection: "column",
-      listStyle: "none",
-      margin: 0,
-      padding: 0,
-    },
-    navbarItem: {
-      margin: "20px 0",
-    },
-    navbarLink: {
-      color: "black",
-      textDecoration: "none",
-      fontSize: "20px",
-      fontWeight: "bold",
-      textTransform: "uppercase",
-      letterSpacing: "1px",
-    },
-    bottomLink: {
-      position: "absolute",
-      bottom: "10%",
-      left: "20px",
-    },
-    bottomLinkText: {
-      color: "black",
-      textDecoration: "none",
-      fontSize: "20px",
-      fontWeight: "bold",
-      textTransform: "uppercase",
-      letterSpacing: "1px",
-    },
-  };
+  //   navbar: {
+  //     backgroundColor: "#FEDD69",
+  //     position: "fixed",
+  //     top: 0,
+  //     left: 0,
+  //     height: "100%",
+  //     display: "flex",
+  //     flexDirection: "column",
+  //     justifyContent: "center",
+  //     alignItems: "flex-start",
+  //     padding: "10px 20px",
+  //     zIndex: 999,
+  //   },
+  //   iconContainer: {
+  //     display: "flex",
+  //     justifyContent: "center",
+  //     alignItems: "center",
+  //     width: "90%",
+  //     height: "60px",
+  //   },
+  //   icon: {
+  //     color: "black",
+  //     fontSize: "60px",
+  //   },
+  //   navbarList: {
+  //     display: "flex",
+  //     flexDirection: "column",
+  //     listStyle: "none",
+  //     margin: 0,
+  //     padding: 0,
+  //   },
+  //   navbarItem: {
+  //     margin: "50px 0",
+  //   },
+  //   navbarLink: {
+  //     color: "black",
+  //     textDecoration: "none",
+  //     fontSize: "20px",
+  //     fontWeight: "bold",
+  //     textTransform: "uppercase",
+  //     letterSpacing: "1px",
+  //   },
+  // };
+
   
+    // Styles for mobile screens
+    // '@media (max-width: 600px)': {
+      navbar: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        backgroundColor: "#FEDD69",
+        padding: "10px 20px",
+      },
+      navbarList: {
+        listStyle: "none",
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        margin: 0,
+        padding: 0,
+      },
+      navbarItem: {
+        margin: "0 10px",
+      },
+      navbarLink: {
+        textDecoration: "none",
+        color: "#333",
+        display: "flex",
+        alignItems: "center",
+      },
+      icon: {
+        marginRight: "5px",
+      },
+    };
