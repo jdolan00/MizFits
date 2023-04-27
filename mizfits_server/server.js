@@ -12,6 +12,7 @@ import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/usersRoutes.js";
 import postRoutes from "./routes/postsRoutes.js";
 import { register } from "./controllers/authController.js";
+import { login } from "./controllers/authController.js";
 import { createPost } from "./controllers/postController.js";
 import { verifyToken } from "./middleware/auth.js";
 import User from "./models/User.js";
@@ -87,6 +88,7 @@ const upload = multer({ storage });
 
 
 app.post("/auth/register", register);
+app.post("/auth/login", login);
 app.post("/posts", verifyToken, createPost);
 
 
@@ -112,15 +114,15 @@ mongoose
   })
   .catch((error) => console.log(`${error} did not connect`));
 
-  app.get('/api/users',(req,res,next)=>{
-    User.find().then(documents=>{
-      console.log(documents)
-      res.status(200).json({
-        message:"fetched data",
-        users:documents
-
-      })
+app.get('/api/users', (req, res, next) => {
+  User.find().then(documents => {
+    console.log(documents)
+    res.status(200).json({
+      message: "fetched data",
+      users: documents
 
     })
-    next()
-    })
+
+  })
+  next()
+})
