@@ -7,15 +7,21 @@ import multer from "multer";
 import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
+// import session from "express-session";
+// import cookieParser from 'cookie-parser';
+// DO NOT REMOVE ABOVE IMPORTS, these are to be added
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/usersRoutes.js";
 import postRoutes from "./routes/postsRoutes.js";
+import workoutRoutes from "./routes/workoutRoutes.js"
 import { register } from "./controllers/authController.js";
 import { login } from "./controllers/authController.js";
 import { createPost } from "./controllers/postController.js";
 import { verifyToken } from "./middleware/auth.js";
 import User from "./models/User.js";
+import Workout from "./models/workout.js";
+
 //import Post from "./models/Post.js";
 //import { users } from "./data/seedData.js";
 
@@ -44,49 +50,6 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Create a new user document
-// const newUser = new User({
-//   firstName: 'John',
-//   lastName: 'Smith',
-//   email: 'john@example.com',
-//   password: 'password123'
-// });
-
-// // Save the user document to the database
-// newUser.save()
-//   .then(() => {
-//     console.log('User saved');
-//   })
-//   .catch((error) => {
-//     console.error(error);
-//   }); 
-
-
-// const firstName = form.querySelector('#first-name').value;
-//   const lastName = form.querySelector('#last-name').value;
-//   const email = form.querySelector('#email').value;
-//   const password = form.querySelector('#password').value;
-
-//   // Create new user object with user input
-//   const newUser = new User({
-//     firstName: firstName,
-//     lastName: lastName,
-//     email: email,
-//     password: password
-//   });
-
-//   // Save the user document to the database
-//   newUser.save()
-//     .then((user) => {
-//       console.log(`User ${user.firstName} ${user.lastName} saved`);
-//       form.reset(); // Clear the form inputs
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//     });
-// });
-
-
 app.post("/auth/register", register);
 app.post("/auth/login", login);
 app.post("/posts", verifyToken, createPost);
@@ -96,9 +59,9 @@ app.post("/posts", verifyToken, createPost);
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
+app.use("/workouts", workoutRoutes)
 
 /* MONGOOSE SETUP */
-//.connect("mongodb+srv://MizFitsUser:Mizzoufitness2023@cluster0.ialsaod.mongodb.net/sample_MizFit",
 const PORT = process.env.PORT || 6001;
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -108,21 +71,29 @@ mongoose
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
     console.log('Connected to database')
-    /* ADD DATA ONE TIME */
-    // User.insertMany(users);
-    // Post.insertMany(posts);
   })
   .catch((error) => console.log(`${error} did not connect`));
 
-app.get('/api/users', (req, res, next) => {
-  User.find().then(documents => {
-    console.log(documents)
+app.get('/api/users', (req, res) => {
+  User.find().then((documents) => {
+    console.log(documents);
     res.status(200).json({
-      message: "fetched data",
-      users: documents
+      message: 'fetched data',
+      users: documents,
+    });
+  });
+});
 
-    })
+app.get('/api/workouts', async (req, res) => {
+  try {
+    console.log('Got a request for /api/workouts');
+    const workouts = await Workout.find({});
+    res.json(workouts);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
 
-  })
-  next()
-})
+/* COOKIE CONFIGURATION */
+// Cookie configuration to be added, currently causing web console warnings, nothing site breaking, but could pose potential security flaw

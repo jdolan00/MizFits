@@ -23,6 +23,8 @@ const App = () => {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/workout" element={<WorkoutPage />} />
         <Route path="/routine" element={<WorkoutPlans />} />
+        <Route path="/workouts" element={<Workouts />} />
+        <Route path="/workouts/:workoutName" element={<Workout />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,41 +1,19 @@
 import * as React from "react";
 import {
-  AppBar,
   CssBaseline,
   Box,
-  Toolbar,
   Typography,
   Container,
 } from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import {ThemeProvider } from "@mui/material/styles";
 import { Footer } from "components/Footer";
+import {theme} from "theme"
 
-const theme = createTheme({
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        body: {
-          backgroundImage: `linear-gradient(90deg, #FE6969, #FFAE4F , #FFE793 )`,
-        },
-      },
-    },
-  },
-});
 
 export default function HomePage() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar
-        position="relative"
-        style={{ background: "transparent", boxShadow: "none" }}
-      >
-        <Toolbar>
-          <Typography variant="h6" color="black" noWrap>
-            Mizfits
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <main>
         <Box>
           <Container maxWidth="sm">

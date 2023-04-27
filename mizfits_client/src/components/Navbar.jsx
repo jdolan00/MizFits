@@ -1,101 +1,66 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Bolt, CottageOutlined, FitnessCenterOutlined, PersonOutlineOutlined, InfoOutlined } from "@mui/icons-material";
-
+import {
+  Bolt,
+  CottageOutlined,
+  FitnessCenterOutlined,
+  PersonOutlineOutlined,
+  InfoOutlined,
+} from "@mui/icons-material";
+import { Typography, useMediaQuery } from "@mui/material";
+import { desktopNavstyles, mobileNavstyles } from "../theme";
 
 const Navbar = () => {
+  const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
+  const navbarItemStyle = isNonMobileScreens
+    ? desktopNavstyles.navbarItem
+    : mobileNavstyles.navbarItem;
+  const navbarLinkStyle = isNonMobileScreens
+    ? desktopNavstyles.navbarLink
+    : mobileNavstyles.navbarLink;
+  const iconStyle = isNonMobileScreens
+    ? desktopNavstyles.icon
+    : mobileNavstyles.icon;
+
   return (
-    <nav style={styles.navbar}>
-      <div style={styles.iconContainer}>
-        <Bolt style={styles.icon} />
+    <nav
+      style={
+        isNonMobileScreens ? desktopNavstyles.navbar : mobileNavstyles.navbar
+      }
+    >
+      <div style={navbarLinkStyle}>
+        <Bolt style={iconStyle} />
+        <Typography>Mizfits</Typography>
       </div>
-      <ul style={styles.navbarList}>
-        <li style={styles.navbarItem}>
-          <Link to="/" style={styles.navbarLink}>
-          <CottageOutlined style={styles.icon} />
+      <ul style={isNonMobileScreens ? desktopNavstyles.navbarList : mobileNavstyles.navbarList}>
+        <div style={navbarItemStyle}>
+          <Link to="/" style={navbarLinkStyle}>
+            <CottageOutlined style={iconStyle} />
           </Link>
-        </li>
-        <li style={styles.navbarItem}>
-          <Link to="/login" style={styles.navbarLink}>
+        </div>
+        <div style={navbarItemStyle}>
+          <Link to="/login" style={navbarLinkStyle}>
             Login
           </Link>
-        </li>
-        <li style={styles.navbarItem}>
-          <Link to="/profile" style={styles.navbarLink}>
-          <PersonOutlineOutlined style={styles.icon} /> 
+        </div>
+        <div style={navbarItemStyle}>
+          <Link to="/profile" style={navbarLinkStyle}>
+            <PersonOutlineOutlined style={iconStyle} />
           </Link>
-        </li>
-        <li style={styles.navbarItem}>
-          <Link to="/workout" style={styles.navbarLink}>
-          <FitnessCenterOutlined style={styles.icon} />
+        </div>
+        <div style={navbarItemStyle}>
+          <Link to="/workout" style={navbarLinkStyle}>
+            <FitnessCenterOutlined style={iconStyle} />
           </Link>
-        </li>
+        </div>
       </ul>
-      <div style={styles.bottomLink}>
-        <Link to="/about" style={styles.bottomLinkText}>
-        <InfoOutlined style={styles.icon} /> 
+      <div style={navbarItemStyle}>
+        <Link to="/about" style={navbarLinkStyle}>
+          <InfoOutlined style={iconStyle} />
         </Link>
       </div>
     </nav>
   );
-};
-
-const styles = {
-  navbar: {
-    backgroundColor: "#FEDD69",
-    position: "fixed",
-    top: 0,
-    left: 0,
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    padding: "10px 20px",
-    zIndex: 999,
-  },
-  iconContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "90%",
-    height: "60px",
-  },
-  icon: {
-    color: "black",
-    fontSize: "60px",
-  },
-  navbarList: {
-    display: "flex",
-    flexDirection: "column",
-    listStyle: "none",
-    margin: 0,
-    padding: 0,
-  },
-  navbarItem: {
-    margin: "20px 0",
-  },
-  navbarLink: {
-    color: "black",
-    textDecoration: "none",
-    fontSize: "20px",
-    fontWeight: "bold",
-    textTransform: "uppercase",
-    letterSpacing: "1px",
-  },
-  bottomLink: {
-    position: "absolute",
-    bottom: "10%",
-    left: "20px",
-  },
-  bottomLinkText: {
-    color: "black",
-    textDecoration: "none",
-    fontSize: "20px",
-    fontWeight: "bold",
-    textTransform: "uppercase",
-    letterSpacing: "1px",
-  },
 };
 
 export default Navbar;
