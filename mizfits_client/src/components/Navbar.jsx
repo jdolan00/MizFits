@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Bolt, CottageOutlined, FitnessCenterOutlined, PersonOutlineOutlined, InfoOutlined } from "@mui/icons-material";
+import { Bolt, CottageOutlined, FitnessCenterOutlined, PersonOutlineOutlined, InfoOutlined,FitbitOutlined } from "@mui/icons-material";
 
 
 const Navbar = () => {
@@ -15,6 +15,13 @@ const Navbar = () => {
           <CottageOutlined style={styles.icon} />
           </Link>
         </li>
+
+        <li style={styles.navbarItem}>
+          <Link to="/track" style={styles.navbarLink}>
+          <FitbitOutlined style={styles.icon} />
+          </Link>
+        </li>
+
         <li style={styles.navbarItem}>
           <Link to="/login" style={styles.navbarLink}>
             Login

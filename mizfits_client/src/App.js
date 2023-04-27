@@ -7,6 +7,7 @@ import WorkoutPage from './scenes/workoutPage/workoutPage';
 import WorkoutPlans from './scenes/workoutPage/Workoutplans';
 import Workouts from './scenes/Workouts/Workouts';
 import Workout from './scenes/Workouts/Workout';
+import TrackingPage from './scenes/trackPage/trackPage';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/track" element={<TrackingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/workout" element={<WorkoutPage />} />
