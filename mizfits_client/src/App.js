@@ -6,12 +6,12 @@ import { BrowserRouter, /*Navigate,*/ Routes, Route } from "react-router-dom";
 // import { themeSettings } from "./theme";
 // import { useMemo } from "react";
 
-import Navbar from './components/Navbar';
-import HomePage from './scenes/homePage/homePage';
-import LoginPage from './scenes/loginPage/LogInPage';
-import ProfilePage from './scenes/profilePage/ProfilePage';
-import WorkoutPage from './scenes/workoutPage/workoutPage';
-import WorkoutPlans from './scenes/workoutPage/Workoutplans';
+import Navbar from "./components/Navbar";
+import HomePage from "./scenes/homePage/homePage";
+import LoginPage from "./scenes/loginPage/LogInPage";
+import ProfilePage from "./scenes/profilePage/ProfilePage";
+import WorkoutPage from "./scenes/workoutPage/workoutPage";
+import WorkoutPlans from "./scenes/workoutPage/Workoutplans";
 
 const App = () => {
   return (
