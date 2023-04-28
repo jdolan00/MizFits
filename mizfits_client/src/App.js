@@ -12,6 +12,8 @@ import LoginPage from "./scenes/loginPage/LogInPage";
 import ProfilePage from "./scenes/profilePage/ProfilePage";
 import WorkoutPage from "./scenes/workoutPage/workoutPage";
 import WorkoutPlans from "./scenes/workoutPage/Workoutplans";
+import Workout from "scenes/Workouts/Workout";
+import Workouts from "scenes/Workouts/Workouts";
 
 const App = () => {
   return (

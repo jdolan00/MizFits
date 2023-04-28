@@ -192,12 +192,9 @@ export const mobileNavstyles = {
     alignItems: "center",
     margin: 0,
     padding: 0,
-
   },
   navbarItem: {
     margin: "0 10px",
-
-
   },
   navbarLink: {
     textDecoration: "none",
