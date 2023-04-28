@@ -11,8 +11,7 @@ export function Banner() {
         width: "100%",
         height: "25%",
         zIndex: 0,
-        backgroundColor: "#FE6969",
-        marginTop: { xs: "4.3rem", lg: 0 },
+        backgroundColor: colors.pinkRed,
       }}
     ></Box>
   );
