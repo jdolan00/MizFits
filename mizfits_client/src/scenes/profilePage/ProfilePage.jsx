@@ -14,70 +14,71 @@ import {
   Divider,
 } from "@mui/material";
 import { colors } from "../../colors";
-import { Banner } from "components/Banner";
-import Navbar from "components/Navbar";
-import { Paragraph } from "typography";
-import { MainHeading } from "typography";
 import { Footer } from "components/Footer";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
 import HistoryIcon from "@mui/icons-material/History";
+import { useState, useEffect } from "react";
+import { Paragraph, MainHeading } from "typography";
 
 const ProfilePage = () => {
   return (
     <Container maxWidth="xl">
       {/* <Banner></Banner> */}
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
-          zIndex: 999,
-          bgcolor: colors.pinkRed,
-          padding: "5rem",
-          borderRadius: "1rem",
-          margin: "2rem",
-        }}
-      >
-        <Avatar
-          sx={{
-            width: 100,
-            height: 100,
-            bgcolor: "white",
-            color: "darkgrey",
-            fontSize: "1.5rem",
-            margin: "1rem",
-          }}
-        >
-          AL
-        </Avatar>
+      <Box sx={{ width: "100%", justifyContent: "center", display: "flex" }}>
         <Box
           sx={{
-            bgcolor: "lightYellow",
-            padding: "0.5rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
+            zIndex: 999,
+            bgcolor: colors.pinkRed,
+            padding: "5rem",
             borderRadius: "1rem",
+            margin: "2rem",
+            width: "15rem",
           }}
         >
-          <Paragraph variant="body2" color="black">
-            @alth5
-          </Paragraph>
-        </Box>
-        <Box
-          sx={{
-            margin: "1rem",
-          }}
-        >
-          <MainHeading variant="h5" color="white">
-            Anna Liner
-          </MainHeading>
+          <Avatar
+            sx={{
+              width: 100,
+              height: 100,
+              bgcolor: "white",
+              color: "darkgrey",
+              fontSize: "1.5rem",
+              margin: "1rem",
+            }}
+          >
+            AL
+          </Avatar>
+          <Box
+            sx={{
+              bgcolor: "lightYellow",
+              padding: "0.5rem",
+              borderRadius: "1rem",
+            }}
+          >
+            <Paragraph variant="body2" color="black">
+              @alth5
+            </Paragraph>
+          </Box>
+          <Box
+            sx={{
+              margin: "1rem",
+            }}
+          >
+            <MainHeading variant="h5" color="white">
+              Anna Liner
+            </MainHeading>
+          </Box>
         </Box>
       </Box>
+
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
-
           justifyContent: "left",
           margin: "2rem",
         }}
