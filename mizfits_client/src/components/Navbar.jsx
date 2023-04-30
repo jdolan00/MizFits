@@ -6,6 +6,7 @@ import {
   FitnessCenterOutlined,
   PersonOutlineOutlined,
   InfoOutlined,
+  FitbitOutlined,
 } from "@mui/icons-material";
 import { Typography, useMediaQuery } from "@mui/material";
 import { desktopNavstyles, mobileNavstyles } from "../theme";
@@ -36,6 +37,11 @@ const Navbar = () => {
         <div style={navbarItemStyle}>
           <Link to="/" style={navbarLinkStyle}>
             <CottageOutlined style={iconStyle} />
+          </Link>
+        </div>
+        <div style={navbarItemStyle}>
+          <Link to="/track" style={navbarLinkStyle}>
+            <FitbitOutlined style={iconStyle} />
           </Link>
         </div>
         <div style={navbarItemStyle}>
