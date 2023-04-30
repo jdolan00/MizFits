@@ -88,7 +88,7 @@ const Form = () => {
       });
       const loggedIn = await loggedInResponse.json();
       onSubmitProps.resetForm();
-      if (loggedIn) {
+      if (loggedIn && loggedIn.user && loggedIn.token) {
         dispatch(
           setLogin({
             user: loggedIn.user,
@@ -96,9 +96,12 @@ const Form = () => {
           })
         );
         navigate("/");
+      } else{
+        onSubmitProps.setErrors({email: "Invalid email or password!"});
       }
     } catch (error) {
       console.error("An error occurred while logging in:", error);
+      onSubmitProps.setErrors({ email: "An error occurred while logging in" });
     }
   };
 
@@ -180,7 +183,11 @@ const Form = () => {
               sx={{ gridColumn: "span 4" }}
             />
           </Box>
-
+          {Boolean(errors.email) && (
+            <Box mt={1} color={palette}>
+              {errors.email}
+            </Box>
+          )}
           {/* BUTTONS */}
           <Box>
             <Button

@@ -27,11 +27,11 @@ const getTrack = async (req, res) => {
 
 // create a new workout
 const createTrack = async (req, res) => {
-  const {title, load, reps} = req.body
+  const {type, title, time, distance, sets, reps, weight, description, date } = req.body
 
   // add to the database
   try {
-    const track = await Track.create({ title, load, reps })
+    const track = await Track.create({ type, title, time, distance, sets, reps, weight, description, date })
     res.status(200).json(track)
   } catch (error) {
     res.status(400).json({ error: error.message })

@@ -30,18 +30,18 @@ const theme = createTheme({
 const TrackPage = () => {
   const [tracks, setTracks] = useState(null)
 
-  useEffect(() => {
-    const fetchTracks = async () => {
-      const response = await fetch('http://localhost:3001/api/tracks')
-      const json = await response.json()
+//   useEffect(() => {
+//     const fetchTracks = async () => {
+//       const response = await fetch('http://localhost:3001/api/tracks')
+//       const json = await response.json()
 
-      if (response.ok) {
-        setTracks(json)
-      }
-    }
+//       if (response.ok) {
+//         setTracks(json)
+//       }
+//     }
 
-    fetchTracks()
-  }, [])
+//     fetchTracks()
+//   }, [])
 
   return (
     <ThemeProvider theme={theme}>
