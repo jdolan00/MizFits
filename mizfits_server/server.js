@@ -54,6 +54,9 @@ app.post("/auth/register", register);
 app.post("/auth/login", login);
 app.post("/posts", verifyToken, createPost);
 
+/* TOKEN VERIFICATION */
+
+
 
 /* ROUTES */
 app.use("/auth", authRoutes);

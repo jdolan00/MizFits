@@ -53,6 +53,11 @@ const Navbar = () => {
             <FitnessCenterOutlined style={iconStyle} />
           </Link>
         </div>
+        <div style={navbarItemStyle}>
+          <Link to="/workouts" style={navbarLinkStyle}>
+            <FitnessCenterOutlined style={iconStyle} />
+          </Link>
+        </div>
       </ul>
       <div style={navbarItemStyle}>
         <Link to="/about" style={navbarLinkStyle}>
