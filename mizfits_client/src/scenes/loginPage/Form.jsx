@@ -95,6 +95,8 @@ const Form = () => {
             token: loggedIn.token,
           })
         );
+        localStorage.setItem("token", loggedIn.token);
+        console.log("Token set in local storage:", localStorage.getItem("token"));
         navigate("/");
       } else{
         onSubmitProps.setErrors({email: "Invalid email or password!"});

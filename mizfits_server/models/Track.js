@@ -3,6 +3,11 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema
 
 const trackSchema = new Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User', //refers to User model
+        required: true,
+      },
     type: {
         type: String,
         enum: ['cardio', 'weights', 'create'],

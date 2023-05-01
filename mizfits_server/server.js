@@ -90,6 +90,18 @@ app.get('/api/users', (req, res) => {
   });
 });
 
+app.get('/api/user', verifyToken, async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const user = await User.findById(userId);
+    console.log(user);
+    res.status(200).json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
 app.get('/api/workouts', async (req, res) => {
   try {
     console.log('Got a request for /api/workouts');
@@ -104,8 +116,12 @@ app.get('/api/workouts', async (req, res) => {
 app.post('/api/tracks', async (req, res) => {
   try {
     console.log('Got a request to create a new track');
-    const { title, type, time, distance, sets, reps, description, date } = req.body;
+    const { title, type, time, distance, sets, reps, weight, description, date } = req.body;
     
+    //Retrieve __id from User collection
+    const userId = req.user._id;
+
+    //Create new "Track", associate with userID
     const newTrack = new Track({
       title: title,
       type: type,
@@ -113,8 +129,10 @@ app.post('/api/tracks', async (req, res) => {
       distance: distance,
       sets: sets,
       reps: reps,
+      weight: weight,
       description: description,
-      date: date
+      date: date,
+      user: userId,
     });
 
     await newTrack.save();
