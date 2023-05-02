@@ -1,4 +1,3 @@
-import {setUser} from "react";
 // import {
 //   AppBar,
 //   CssBaseline,
@@ -10,7 +9,7 @@ import {setUser} from "react";
 import { CssBaseline } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Footer } from "components/Footer";
-import { useEffect, useState } from "react";
+import { useEffect, useState, setUser } from "react";
 import{ useHistory } from "react-router-dom";
 import TrackInfo from "components/TrackInfo";
 import TrackForm from "./TrackForm";
@@ -31,10 +30,6 @@ const theme = createTheme({
     },
   },
 });
-const handleLogout = () => {
-    localStorage.removeItem("token");
-    setUser(null);
-  };
 
 const TrackPage = () => {
   const [tracks, setTracks] = useState(null)
@@ -44,7 +39,6 @@ const TrackPage = () => {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem("token");
-  
         const decoded = jwt_decode(token);
         const userId = decoded.id;
 
@@ -69,6 +63,11 @@ setUser(json);
     };
     fetchUser();
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+  };
 
   return (
     <ThemeProvider theme={theme}>
