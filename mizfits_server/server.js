@@ -90,9 +90,9 @@ app.get('/api/users', (req, res) => {
   });
 });
 
-app.get('/api/user', verifyToken, async (req, res) => {
+app.get(`/api/user/:id`, verifyToken, async (req, res) => {
   try {
-    const userId = req.user._id;
+    const userId = req.params.id;
     const user = await User.findById(userId);
     console.log(user);
     res.status(200).json(user);

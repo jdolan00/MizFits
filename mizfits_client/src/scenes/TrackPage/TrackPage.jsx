@@ -1,4 +1,4 @@
-import * as React from "react";
+import {setUser} from "react";
 // import {
 //   AppBar,
 //   CssBaseline,
@@ -15,6 +15,7 @@ import{ useHistory } from "react-router-dom";
 import TrackInfo from "components/TrackInfo";
 import TrackForm from "./TrackForm";
 import {Box} from "@mui/material";
+import jwt_decode from "jwt-decode";
 
 
 
@@ -30,6 +31,10 @@ const theme = createTheme({
     },
   },
 });
+const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+  };
 
 const TrackPage = () => {
   const [tracks, setTracks] = useState(null)
@@ -40,7 +45,10 @@ const TrackPage = () => {
       try {
         const token = localStorage.getItem("token");
   
-        const response = await fetch("http://localhost:3001/api/user", {
+        const decoded = jwt_decode(token);
+        const userId = decoded.id;
+
+        const response = await fetch(`http://localhost:3001/api/user/${userId}`, {
     method: "GET",
     headers: {
         "Content-Type": "application/json",
@@ -75,9 +83,14 @@ setUser(json);
       {user ? (
         <p>
           Logged in as {user.firstName} {user.lastName}
+          <button onClick={handleLogout}>Logout</button>
         </p>
       ) : (
-        <p>Not logged in</p>
+        <p>Not logged in
+            <button onClick={handleLogout}>Logout</button>
+        </p>
+        
+        
       )}
       </Box>
     <div className="track">
