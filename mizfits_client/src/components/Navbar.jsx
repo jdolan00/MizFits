@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Bolt,
   CottageOutlined,
@@ -8,10 +8,10 @@ import {
   InfoOutlined,
   FitbitOutlined,
 } from "@mui/icons-material";
-import { Typography, useMediaQuery } from "@mui/material";
+import { Typography, useMediaQuery, Button } from "@mui/material";
 import { desktopNavstyles, mobileNavstyles } from "../theme";
 
-const Navbar = () => {
+const Navbar = ( {isLoggedIn, onLogin}) => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   const navbarItemStyle = isNonMobileScreens
     ? desktopNavstyles.navbarItem
@@ -23,6 +23,16 @@ const Navbar = () => {
     ? desktopNavstyles.icon
     : mobileNavstyles.icon;
 
+
+    // Check for token to deliver different Navbar depending on login status
+    const token = localStorage.getItem('token');
+
+    const navigate = useNavigate();
+    const handleLogout = () => {
+      localStorage.removeItem('token');
+      onLogin(false);
+      navigate('/');
+    };
   return (
     <nav
       style={
@@ -34,6 +44,8 @@ const Navbar = () => {
         <Typography>Mizfits</Typography>
       </div>
       <ul style={isNonMobileScreens ? desktopNavstyles.navbarList : mobileNavstyles.navbarList}>
+        {token ? ( 
+          <>
         <div style={navbarItemStyle}>
           <Link to="/" style={navbarLinkStyle}>
             <CottageOutlined style={iconStyle} />
@@ -45,9 +57,9 @@ const Navbar = () => {
           </Link>
         </div>
         <div style={navbarItemStyle}>
-          <Link to="/login" style={navbarLinkStyle}>
-            Login
-          </Link>
+          <Button onClick={handleLogout} style={navbarLinkStyle}>
+            Logout
+          </Button>
         </div>
         <div style={navbarItemStyle}>
           <Link to="/profile" style={navbarLinkStyle}>
@@ -64,12 +76,36 @@ const Navbar = () => {
             <FitnessCenterOutlined style={iconStyle} />
           </Link>
         </div>
-      </ul>
+        <div style={navbarItemStyle}>
+        <Link to="/about" style={navbarLinkStyle}>
+          <InfoOutlined style={iconStyle} />
+        </Link>
+        
+      </div>
+      
+        </>
+        ) : (
+      <>
+      <div style={navbarItemStyle}>
+          <Link to="/" style={navbarLinkStyle}>
+            <CottageOutlined style={iconStyle} />
+          </Link>
+        </div>
+
+      <div style={navbarItemStyle}>
+        <Link to="/login" style={navbarLinkStyle}>
+          Login
+        </Link>
+      </div>
+
       <div style={navbarItemStyle}>
         <Link to="/about" style={navbarLinkStyle}>
           <InfoOutlined style={iconStyle} />
         </Link>
       </div>
+      </>
+        )}
+      </ul>
     </nav>
   );
 };

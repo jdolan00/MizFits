@@ -51,7 +51,7 @@ const initialValuesLogin = {
   password: "",
 };
 
-const Form = () => {
+  const Form = ( {onLogin} ) => {
   const [pageType, setPageType] = useState("login");
   const { palette } = useTheme();
   const dispatch = useDispatch();
@@ -79,7 +79,7 @@ const Form = () => {
   };
 
 
-  const login = async (values, onSubmitProps) => {
+  const login = async (values, onSubmitProps, onLogin) => {
     try {
       const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
         method: "POST",
@@ -96,6 +96,7 @@ const Form = () => {
           })
         );
         localStorage.setItem("token", loggedIn.token);
+        onLogin(true)
         console.log("Token set in local storage:", localStorage.getItem("token"));
         navigate("/");
       } else{
@@ -109,7 +110,7 @@ const Form = () => {
 
 
   const handleFormSubmit = async (values, onSubmitProps) => {
-    if (isLogin) await login(values, onSubmitProps);
+    if (isLogin) await login(values, onSubmitProps, onLogin);
     if (isRegister) await register(values, onSubmitProps);
   };
 

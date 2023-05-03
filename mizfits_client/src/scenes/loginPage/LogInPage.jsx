@@ -23,7 +23,7 @@ const theme = createTheme({
   },
 });
 
-const LoginPage = () => {
+const LoginPage = ({ onLogin }) => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   return (
     <ThemeProvider theme={theme}>
@@ -50,7 +50,7 @@ const LoginPage = () => {
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
           Welcome to MizFits!
         </Typography>
-        <Form />
+        <Form onLogin={onLogin}/>
       </Box>
     </Box>
     </ThemeProvider>
