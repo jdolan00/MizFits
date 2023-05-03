@@ -24,6 +24,8 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
 import HistoryIcon from "@mui/icons-material/History";
 import { ThemeProvider } from "@mui/material/styles";
+import { useEffect, useState } from "react";
+import UserDetails from "components/UserDetails";
 
 const theme = createTheme({
   components: {
@@ -43,54 +45,56 @@ const ProfilePage = () => {
       <CssBaseline />
       <Container maxWidth="md">
         {/* <Banner></Banner> */}
-        <Box
-          sx={{
-          
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "column",
-            zIndex: 999,
-            bgcolor: colors.pinkRed,
-            padding: "2rem",
-            borderRadius: "1rem",
-            margin: "3rem",
-            
-          }}
-        >
-          <Avatar
-            sx={{
-              width: 100,
-              height: 100,
-              bgcolor: "white",
-              color: "darkgrey",
-              fontSize: "1.5rem",
-              margin: "1rem",
-            }}
-          >
-            AL
-          </Avatar>
-          <Box
-            sx={{
-              bgcolor: "lightYellow",
-              padding: ".5rem",
-              borderRadius: "1rem",
-            }}
-          >
-            <Paragraph variant="body2" color="black">
-              @alth5
-            </Paragraph>
-          </Box>
-          <Box
-            sx={{
-              margin: "1rem",
-            }}
-          >
-            <MainHeading variant="h5" color="white">
-              Anna Liner
-            </MainHeading>
-          </Box>
-        </Box>
+        <UserDetails render={(user) => (
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+                zIndex: 999,
+                bgcolor: colors.pinkRed,
+                padding: "2rem",
+                borderRadius: "1rem",
+                margin: "3rem",
+              }}
+            >
+              <Avatar
+                sx={{
+                  width: 100,
+                  height: 100,
+                  bgcolor: "white",
+                  color: "darkgrey",
+                  fontSize: "1.5rem",
+                  margin: "1rem",
+                }}
+              >
+                {user.firstName.charAt(0)}
+                {user.lastName.charAt(0)}
+              </Avatar>
+              <Box
+                sx={{
+                  bgcolor: "lightYellow",
+                  padding: ".5rem",
+                  borderRadius: "1rem",
+                }}
+              >
+                <Paragraph variant="body2" color="black">
+                  {user.email.split("@")[0]}
+                </Paragraph>
+              </Box>
+              <Box
+                sx={{
+                  margin: "1rem",
+                }}
+              >
+                <MainHeading variant="h5" color="white">
+                  {user.firstName} {user.lastName}
+                </MainHeading>
+              </Box>
+            </Box>
+          )}
+        />
         <Box
           sx={{
             display: "flex",
