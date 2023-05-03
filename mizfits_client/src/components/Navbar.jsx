@@ -6,13 +6,14 @@ import {
   FitnessCenterOutlined,
   PersonOutlineOutlined,
   InfoOutlined,
-  EditNote,
   FormatListBulleted,
+  Edit
 } from "@mui/icons-material";
 import { Typography, useMediaQuery, Button } from "@mui/material";
 import { desktopNavstyles, mobileNavstyles } from "../theme";
 
-const Navbar = ( {isLoggedIn, onLogin}) => {
+
+const Navbar = ({ isLoggedIn, onLogin }) => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   const navbarItemStyle = isNonMobileScreens
     ? desktopNavstyles.navbarItem
@@ -25,15 +26,15 @@ const Navbar = ( {isLoggedIn, onLogin}) => {
     : mobileNavstyles.icon;
 
 
-    // Check for token to deliver different Navbar depending on login status
-    const token = localStorage.getItem('token');
+  // Check for token to deliver different Navbar depending on login status
+  const token = localStorage.getItem('token');
 
-    const navigate = useNavigate();
-    const handleLogout = () => {
-      localStorage.removeItem('token');
-      onLogin(false);
-      navigate('/');
-    };
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    onLogin(false);
+    navigate('/');
+  };
   return (
     <nav
       style={
@@ -45,66 +46,66 @@ const Navbar = ( {isLoggedIn, onLogin}) => {
         <Typography>Mizfits</Typography>
       </div>
       <ul style={isNonMobileScreens ? desktopNavstyles.navbarList : mobileNavstyles.navbarList}>
-        {token ? ( 
+        {token ? (
           <>
-        <div style={navbarItemStyle}>
-          <Link to="/" style={navbarLinkStyle}>
-            <CottageOutlined style={iconStyle} />
-          </Link>
-        </div>
-        <div style={navbarItemStyle}>
-          <Link to="/track" style={navbarLinkStyle}>
-            <EditNote style={iconStyle} />
-          </Link>
-        </div>
-        <div style={navbarItemStyle}>
-          <Button onClick={handleLogout} style={navbarLinkStyle}>
-            Logout
-          </Button>
-        </div>
-        <div style={navbarItemStyle}>
-          <Link to="/profile" style={navbarLinkStyle}>
-            <PersonOutlineOutlined style={iconStyle} />
-          </Link>
-        </div>
-        <div style={navbarItemStyle}>
-          <Link to="/workout" style={navbarLinkStyle}>
-            <FitnessCenterOutlined style={iconStyle} />
-          </Link>
-        </div>
-        <div style={navbarItemStyle}>
-          <Link to="/workouts" style={navbarLinkStyle}>
-            <FormatListBulleted style={iconStyle} />
-          </Link>
-        </div>
-        <div style={navbarItemStyle}>
-        <Link to="/about" style={navbarLinkStyle}>
-          <InfoOutlined style={iconStyle} />
-        </Link>
-        
-      </div>
-      
-        </>
+            <div style={navbarItemStyle}>
+              <Link to="/" style={navbarLinkStyle}>
+                <CottageOutlined style={iconStyle} />
+              </Link>
+            </div>
+            <div style={navbarItemStyle}>
+              <Link to="/track" style={navbarLinkStyle}>
+                <Edit style={iconStyle} />
+              </Link>
+            </div>
+            <div style={navbarItemStyle}>
+              <Button onClick={handleLogout} style={navbarLinkStyle}>
+                Logout
+              </Button>
+            </div>
+            <div style={navbarItemStyle}>
+              <Link to="/profile" style={navbarLinkStyle}>
+                <PersonOutlineOutlined style={iconStyle} />
+              </Link>
+            </div>
+            <div style={navbarItemStyle}>
+              <Link to="/workout" style={navbarLinkStyle}>
+                <FitnessCenterOutlined style={iconStyle} />
+              </Link>
+            </div>
+            <div style={navbarItemStyle}>
+              <Link to="/workouts" style={navbarLinkStyle}>
+                <FormatListBulleted style={iconStyle} />
+              </Link>
+            </div>
+            <div style={navbarItemStyle}>
+              <Link to="/about" style={navbarLinkStyle}>
+                <InfoOutlined style={iconStyle} />
+              </Link>
+
+            </div>
+
+          </>
         ) : (
-      <>
-      <div style={navbarItemStyle}>
-          <Link to="/" style={navbarLinkStyle}>
-            <CottageOutlined style={iconStyle} />
-          </Link>
-        </div>
+          <>
+            <div style={navbarItemStyle}>
+              <Link to="/" style={navbarLinkStyle}>
+                <CottageOutlined style={iconStyle} />
+              </Link>
+            </div>
 
-      <div style={navbarItemStyle}>
-        <Link to="/login" style={navbarLinkStyle}>
-          Login
-        </Link>
-      </div>
+            <div style={navbarItemStyle}>
+              <Link to="/login" style={navbarLinkStyle}>
+                Login
+              </Link>
+            </div>
 
-      <div style={navbarItemStyle}>
-        <Link to="/about" style={navbarLinkStyle}>
-          <InfoOutlined style={iconStyle} />
-        </Link>
-      </div>
-      </>
+            <div style={navbarItemStyle}>
+              <Link to="/about" style={navbarLinkStyle}>
+                <InfoOutlined style={iconStyle} />
+              </Link>
+            </div>
+          </>
         )}
       </ul>
     </nav>
