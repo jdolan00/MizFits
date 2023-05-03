@@ -5,6 +5,7 @@ import { CardBase } from "components/CardBase";
 import { Footer } from "components/Footer";
 import {theme} from "theme"
 
+
 export default function Album() {
   return (
     <ThemeProvider theme={theme}>

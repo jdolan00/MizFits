@@ -13,15 +13,15 @@ import { Link } from 'react-router-dom';
 export function CardBase(props) {
   return (
     <Grid item key={Card} md={4}>
-      <Card sx={{ borderRadius: "16px" }}>
+      <Card sx={{ borderRadius: "16px"  }}>
         <CardMedia component="img" image={props.img} />
-        <CardContent>
+        <CardContent sx={{ textAlign: "center" }}>
           <Typography gutterBottom variant="h5" component="h2">
             {props.days}
           </Typography>
           <Typography>{props.subtext}</Typography>
         </CardContent>
-        <CardActions>
+        <CardActions sx={{ justifyContent: "center" }}>
           <Link to="/routine">
             <Button size="small">{props.button1}</Button>
           </Link>

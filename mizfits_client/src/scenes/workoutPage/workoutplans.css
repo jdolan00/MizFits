@@ -1,0 +1,47 @@
+
+/* Table Styles */
+
+
+
+table {
+  border-radius: 32px;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  white-space: nowrap;
+  background-color: white;
+  margin-bottom: 20px;
+  width: 100%;
+  table-layout: fixed;
+}
+
+
+table td, table th {
+  text-align: center;
+  padding: 8px;
+  font-size: 20px;
+}
+
+table td {
+  font-size: 16px;
+}
+
+table thead th {
+  color: #ffffff;
+  background: #FE6969;
+}
+
+table thead th:first-child,
+table tbody tr:first-child td:first-child {
+  border-top-left-radius: 32px;
+}
+
+table thead th:last-child,
+table tbody tr:first-child td:last-child {
+  border-top-right-radius: 32px;
+}
+
+table tbody tr {
+  border-top: 1px solid black;
+}
