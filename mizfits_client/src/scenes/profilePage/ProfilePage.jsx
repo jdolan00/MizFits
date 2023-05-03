@@ -15,14 +15,11 @@ import {
   CssBaseline,
 } from "@mui/material";
 import { colors } from "../../colors";
-import { Banner } from "components/Banner";
-import Navbar from "components/Navbar";
-import { Paragraph } from "typography";
-import { MainHeading } from "typography";
 import { Footer } from "components/Footer";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
 import HistoryIcon from "@mui/icons-material/History";
+
 import { ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({
@@ -46,6 +43,7 @@ const ProfilePage = () => {
         <Box
           sx={{
           
+
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -73,7 +71,8 @@ const ProfilePage = () => {
           <Box
             sx={{
               bgcolor: "lightYellow",
-              padding: ".5rem",
+
+              padding: "0.5rem",
               borderRadius: "1rem",
             }}
           >
@@ -91,11 +90,11 @@ const ProfilePage = () => {
             </MainHeading>
           </Box>
         </Box>
+
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
-
             justifyContent: "left",
             margin: "2rem",
           }}
