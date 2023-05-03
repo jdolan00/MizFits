@@ -7,10 +7,11 @@ import {
   PersonOutlineOutlined,
   InfoOutlined,
   FormatListBulleted,
-  Edit
+  Edit,
 } from "@mui/icons-material";
 import { Typography, useMediaQuery, Button } from "@mui/material";
 import { desktopNavstyles, mobileNavstyles } from "../theme";
+import GroupIcon from '@mui/icons-material/Group';
 
 
 const Navbar = ({ isLoggedIn, onLogin }) => {
@@ -69,6 +70,11 @@ const Navbar = ({ isLoggedIn, onLogin }) => {
               </Link>
             </div>
             <div style={navbarItemStyle}>
+              <Link to="/feed" style={navbarLinkStyle}>
+                <GroupIcon style={iconStyle} />
+              </Link>
+            </div>
+            <div style={navbarItemStyle}>
               <Link to="/workout" style={navbarLinkStyle}>
                 <FitnessCenterOutlined style={iconStyle} />
               </Link>
@@ -82,7 +88,6 @@ const Navbar = ({ isLoggedIn, onLogin }) => {
               <Link to="/about" style={navbarLinkStyle}>
                 <InfoOutlined style={iconStyle} />
               </Link>
-
             </div>
 
           </>
