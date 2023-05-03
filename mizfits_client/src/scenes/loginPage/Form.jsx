@@ -51,7 +51,7 @@ const initialValuesLogin = {
   password: "",
 };
 
-const Form = () => {
+  const Form = ( {onLogin} ) => {
   const [pageType, setPageType] = useState("login");
   const { palette } = useTheme();
   const dispatch = useDispatch();
@@ -61,7 +61,7 @@ const Form = () => {
   const isRegister = pageType === "register";
 
   const register = async (values, onSubmitProps) => {
-    const savedUserResponse = await fetch("mizfits.azurewebsites.net/auth/register", {
+    const savedUserResponse = await fetch("http://localhost:3001/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
@@ -69,42 +69,53 @@ const Form = () => {
     const savedUser = await savedUserResponse.json();
     onSubmitProps.resetForm();
 
-    if (savedUser) {
+    if (savedUser.error) {
+      onSubmitProps.setErrors({email: savedUser.error});
+
+    } else{
+      onSubmitProps.resetForm();
       setPageType("login");
     }
   };
 
 
-  const login = async (values, onSubmitProps) => {
+  const login = async (values, onSubmitProps, onLogin) => {
     try {
-      const loggedInResponse = await fetch("mizfits.azurewebsites.net/auth/login", {
+      const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
       const loggedIn = await loggedInResponse.json();
       onSubmitProps.resetForm();
-      if (loggedIn) {
+      if (loggedIn && loggedIn.user && loggedIn.token) {
         dispatch(
           setLogin({
             user: loggedIn.user,
             token: loggedIn.token,
           })
         );
+        localStorage.setItem("token", loggedIn.token);
+        onLogin(true)
+        console.log("Token set in local storage:", localStorage.getItem("token"));
         navigate("/");
+      } else{
+        onSubmitProps.setErrors({email: "Invalid email or password!"});
       }
     } catch (error) {
       console.error("An error occurred while logging in:", error);
+      onSubmitProps.setErrors({ email: "An error occurred while logging in" });
     }
   };
 
 
   const handleFormSubmit = async (values, onSubmitProps) => {
-    if (isLogin) await login(values, onSubmitProps);
+    if (isLogin) await login(values, onSubmitProps, onLogin);
     if (isRegister) await register(values, onSubmitProps);
   };
 
   return (
+    <Box sx={{ bgcolor: "#ffffff", p: "2rem", borderRadius: "16px" }}>
     <Formik
       onSubmit={handleFormSubmit}
       initialValues={isLogin ? initialValuesLogin : initialValuesRegister}
@@ -176,7 +187,11 @@ const Form = () => {
               sx={{ gridColumn: "span 4" }}
             />
           </Box>
-
+          {Boolean(errors.email) && (
+            <Box mt={1} color={palette}>
+              {errors.email}
+            </Box>
+          )}
           {/* BUTTONS */}
           <Box>
             <Button
@@ -185,9 +200,9 @@ const Form = () => {
               sx={{
                 m: "2rem 0",
                 p: "1rem",
-                backgroundColor: palette.primary.main,
-                color: palette.background.alt,
-                "&:hover": { color: palette.primary.main },
+                backgroundColor: "#FFAE4F",
+                color: "black",
+                "&:hover": { color: "#FE6969" },
               }}
             >
               {isLogin ? "LOGIN" : "REGISTER"}
@@ -214,6 +229,7 @@ const Form = () => {
         </form>
       )}
     </Formik>
+    </Box>
   );
 };
 
