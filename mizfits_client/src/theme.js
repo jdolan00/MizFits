@@ -149,7 +149,7 @@ export const desktopNavstyles = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "flex-start",
-    padding: "10px 20px",
+    padding: "0px 10px",
     zIndex: 999,
   },
   icon: {
@@ -164,7 +164,7 @@ export const desktopNavstyles = {
     padding: 0,
   },
   navbarItem: {
-    margin: "50px 0",
+    margin: "25px 0",
   },
   navbarLink: {
     color: "black",
@@ -192,12 +192,9 @@ export const mobileNavstyles = {
     alignItems: "center",
     margin: 0,
     padding: 0,
-
   },
   navbarItem: {
     margin: "0 10px",
-
-
   },
   navbarLink: {
     textDecoration: "none",

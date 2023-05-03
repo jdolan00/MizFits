@@ -21,6 +21,7 @@ import { createPost } from "./controllers/postController.js";
 import { verifyToken } from "./middleware/auth.js";
 import User from "./models/User.js";
 import Workout from "./models/workout.js";
+import Track from "./models/Track.js"
 
 //import Post from "./models/Post.js";
 //import { users } from "./data/seedData.js";
@@ -54,6 +55,9 @@ app.post("/auth/register", register);
 app.post("/auth/login", login);
 app.post("/posts", verifyToken, createPost);
 
+/* TOKEN VERIFICATION */
+
+
 
 /* ROUTES */
 app.use("/auth", authRoutes);
@@ -74,6 +78,8 @@ mongoose
   })
   .catch((error) => console.log(`${error} did not connect`));
 
+
+/* MIDDLEWARE FUNCTIONS FOR API HANDLING */
 app.get('/api/users', (req, res) => {
   User.find().then((documents) => {
     console.log(documents);
@@ -82,6 +88,18 @@ app.get('/api/users', (req, res) => {
       users: documents,
     });
   });
+});
+
+app.get(`/api/user/:id`, verifyToken, async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await User.findById(userId);
+    console.log(user);
+    res.status(200).json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server Error' });
+  }
 });
 
 app.get('/api/workouts', async (req, res) => {
@@ -94,6 +112,37 @@ app.get('/api/workouts', async (req, res) => {
     res.status(500).json({ message: 'Server Error' });
   }
 });
+
+app.post('/api/tracks', async (req, res) => {
+  try {
+    console.log('Got a request to create a new track');
+    const { title, type, time, distance, sets, reps, weight, description, date } = req.body;
+    
+    //Retrieve __id from User collection
+    const userId = req.user._id;
+
+    //Create new "Track", associate with userID
+    const newTrack = new Track({
+      title: title,
+      type: type,
+      time: time,
+      distance: distance,
+      sets: sets,
+      reps: reps,
+      weight: weight,
+      description: description,
+      date: date,
+      user: userId,
+    });
+
+    await newTrack.save();
+    res.status(200).json(newTrack);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
 
 /* COOKIE CONFIGURATION */
 // Cookie configuration to be added, currently causing web console warnings, nothing site breaking, but could pose potential security flaw
