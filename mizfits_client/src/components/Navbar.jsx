@@ -6,7 +6,8 @@ import {
   FitnessCenterOutlined,
   PersonOutlineOutlined,
   InfoOutlined,
-  FitbitOutlined,
+  EditNote,
+  FormatListBulleted,
 } from "@mui/icons-material";
 import { Typography, useMediaQuery, Button } from "@mui/material";
 import { desktopNavstyles, mobileNavstyles } from "../theme";
@@ -53,7 +54,7 @@ const Navbar = ( {isLoggedIn, onLogin}) => {
         </div>
         <div style={navbarItemStyle}>
           <Link to="/track" style={navbarLinkStyle}>
-            <FitbitOutlined style={iconStyle} />
+            <EditNote style={iconStyle} />
           </Link>
         </div>
         <div style={navbarItemStyle}>
@@ -73,7 +74,7 @@ const Navbar = ( {isLoggedIn, onLogin}) => {
         </div>
         <div style={navbarItemStyle}>
           <Link to="/workouts" style={navbarLinkStyle}>
-            <FitnessCenterOutlined style={iconStyle} />
+            <FormatListBulleted style={iconStyle} />
           </Link>
         </div>
         <div style={navbarItemStyle}>

@@ -27,13 +27,15 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
         {/* PROTECTED ROUTES */}
-        <Route path="/track" element={<ProtectedRoute component={TrackingPage} />} />
-        <Route path="/profile" element={<ProtectedRoute component={ProfilePage} />} />
-        <Route path="/workout" element={<ProtectedRoute component={WorkoutPage} />} />
-        <Route path="/routine" element={<ProtectedRoute component={WorkoutPlans} />} />
-        <Route path="/workouts" element={<ProtectedRoute component={Workouts} />}>
-          <Route index element={<Workouts />} />
-          <Route path=":workoutName" element={<Workout />} />
+        <Route
+          element={<ProtectedRoute />}
+        >
+          <Route path="/track" element={<TrackingPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/workout" element={<WorkoutPage />} />
+          <Route path="/routine" element={<WorkoutPlans />} />
+          <Route path="/workouts" element={<Workouts />} />
+          <Route path="/workouts/:workoutName" element={<Workout />} />
         </Route>
       </Routes>
     </BrowserRouter>
