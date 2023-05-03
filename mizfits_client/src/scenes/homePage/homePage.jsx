@@ -49,20 +49,6 @@ const FeatureCard = ({ icon, caption }) => {
     </Paper>
   );
 };
-// const bpTheme = createTheme({
-//   breakpoints: {
-//     values: {
-//       xs: 0,
-//       sm: 600,
-//       md: 960,
-//       lg: 1280,
-//       xl: 1920,
-//       xxl: 2560,
-//       // add a new breakpoint for stacking at 800px width
-//       stacking: 800,
-//     },
-//   },
-// });
 
 export default function HomePage() {
   return (
