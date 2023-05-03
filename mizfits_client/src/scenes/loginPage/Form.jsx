@@ -21,17 +21,17 @@ const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
   email: yup
-  .string()
-  .email("Invalid email format")
-  .required("required")
-  .matches(
-    /^[a-zA-Z0-9]+@umsystem\.edu$/,
-    "Invalid email format, must be a valid @umsystem.edu email"
-  ),
-password: yup
-  .string()
-  .required("required")
-  .min(8, "Password must be at least 8 characters long"),
+    .string()
+    .email("Invalid email format")
+    .required("required")
+    .matches(
+      /^[a-zA-Z0-9]+@umsystem\.edu$/,
+      "Invalid email format, must be a valid @umsystem.edu email"
+    ),
+  password: yup
+    .string()
+    .required("required")
+    .min(8, "Password must be at least 8 characters long"),
 });
 
 const loginSchema = yup.object().shape({
@@ -51,7 +51,7 @@ const initialValuesLogin = {
   password: "",
 };
 
-  const Form = ( {onLogin} ) => {
+const Form = ({ onLogin }) => {
   const [pageType, setPageType] = useState("login");
   const { palette } = useTheme();
   const dispatch = useDispatch();
@@ -61,7 +61,7 @@ const initialValuesLogin = {
   const isRegister = pageType === "register";
 
   const register = async (values, onSubmitProps) => {
-    const savedUserResponse = await fetch("http://localhost:3001/auth/register", {
+    const savedUserResponse = await fetch("https://mizfit.azurewebsites.net/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
@@ -70,9 +70,8 @@ const initialValuesLogin = {
     onSubmitProps.resetForm();
 
     if (savedUser.error) {
-      onSubmitProps.setErrors({email: savedUser.error});
-
-    } else{
+      onSubmitProps.setErrors({ email: savedUser.error });
+    } else {
       onSubmitProps.resetForm();
       setPageType("login");
     }
@@ -81,7 +80,7 @@ const initialValuesLogin = {
 
   const login = async (values, onSubmitProps, onLogin) => {
     try {
-      const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
+      const loggedInResponse = await fetch("https://mizfit.azurewebsites.net/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
@@ -99,8 +98,8 @@ const initialValuesLogin = {
         onLogin(true)
         console.log("Token set in local storage:", localStorage.getItem("token"));
         navigate("/");
-      } else{
-        onSubmitProps.setErrors({email: "Invalid email or password!"});
+      } else {
+        onSubmitProps.setErrors({ email: "Invalid email or password!" });
       }
     } catch (error) {
       console.error("An error occurred while logging in:", error);

@@ -39,6 +39,8 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
+app.use(express.static(path.join(__dirname, '..', 'build')));
+
 
 /* FILE STORAGE */
 const storage = multer.diskStorage({
@@ -117,7 +119,7 @@ app.post('/api/tracks', async (req, res) => {
   try {
     console.log('Got a request to create a new track');
     const { title, type, time, distance, sets, reps, weight, description, date } = req.body;
-    
+
     //Retrieve __id from User collection
     const userId = req.user._id;
 
@@ -141,6 +143,10 @@ app.post('/api/tracks', async (req, res) => {
     console.error(error);
     res.status(500).json({ message: 'Server Error' });
   }
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
 });
 
 
