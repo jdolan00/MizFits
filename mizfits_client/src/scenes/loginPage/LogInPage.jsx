@@ -1,34 +1,22 @@
 import Form from "./Form";
 import {
-  AppBar,
   CssBaseline,
   Box,
-  Toolbar,
-  useTheme,
   useMediaQuery,
   Typography,
-  Container,
 } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
+import {theme} from "theme"
+import { Footer } from "components/Footer";
 
-const theme = createTheme({
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        body: {
-          backgroundImage: `linear-gradient(90deg, #FE6969, #FFAE4F , #FFE793 )`,
-        },
-      },
-    },
-  },
-});
+
 
 const LoginPage = ({ onLogin }) => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-    <Box>
+    <Box textAlign="center">
       <Box
         width="100%"
         backgroundColor={theme.palette.background.alt}
@@ -53,6 +41,7 @@ const LoginPage = ({ onLogin }) => {
         <Form onLogin={onLogin}/>
       </Box>
     </Box>
+    <Footer></Footer>
     </ThemeProvider>
   );
 };

@@ -115,6 +115,7 @@ const initialValuesLogin = {
   };
 
   return (
+    <Box sx={{ bgcolor: "#ffffff", p: "2rem", borderRadius: "16px" }}>
     <Formik
       onSubmit={handleFormSubmit}
       initialValues={isLogin ? initialValuesLogin : initialValuesRegister}
@@ -199,9 +200,9 @@ const initialValuesLogin = {
               sx={{
                 m: "2rem 0",
                 p: "1rem",
-                backgroundColor: palette.primary.main,
-                color: palette.background.alt,
-                "&:hover": { color: palette.primary.main },
+                backgroundColor: "#FFAE4F",
+                color: "black",
+                "&:hover": { color: "#FE6969" },
               }}
             >
               {isLogin ? "LOGIN" : "REGISTER"}
@@ -228,6 +229,7 @@ const initialValuesLogin = {
         </form>
       )}
     </Formik>
+    </Box>
   );
 };
 
