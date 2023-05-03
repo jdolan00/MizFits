@@ -4,7 +4,9 @@ import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "theme";
 import { Footer } from "components/Footer";
 
-const LoginPage = () => {
+
+
+const LoginPage = ({ onLogin }) => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   return (
     <ThemeProvider theme={theme}>
@@ -21,18 +23,18 @@ const LoginPage = () => {
           </Typography>
         </Box>
 
-        <Box
-          width={isNonMobileScreens ? "30%" : "93%"}
-          p="2rem"
-          m="2rem auto"
-          borderRadius="1.5rem"
-          backgroundColor={theme.palette.background.alt}
-        >
-          <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
-            Welcome to MizFits!
-          </Typography>
-          <Form />
-        </Box>
+      <Box
+        width={isNonMobileScreens ? "30%" : "93%"}
+        p="2rem"
+        m="2rem auto"
+        borderRadius="1.5rem"
+        backgroundColor={theme.palette.background.alt}
+      >
+        <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
+          Welcome to MizFits!
+        </Typography>
+        <Form onLogin={onLogin}/>
+      </Box>
       </Box>
       <Footer></Footer>
     </ThemeProvider>
