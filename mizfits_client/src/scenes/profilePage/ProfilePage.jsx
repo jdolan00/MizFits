@@ -15,14 +15,12 @@ import {
   CssBaseline,
 } from "@mui/material";
 import { colors } from "../../colors";
-import { Banner } from "components/Banner";
-import Navbar from "components/Navbar";
-import { Paragraph } from "typography";
-import { MainHeading } from "typography";
 import { Footer } from "components/Footer";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
 import HistoryIcon from "@mui/icons-material/History";
+import { Paragraph } from "typography";
+import { MainHeading } from "typography";
 import { ThemeProvider } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 import UserDetails from "components/UserDetails";
@@ -45,6 +43,7 @@ const ProfilePage = () => {
       <CssBaseline />
       <Container maxWidth="md">
         {/* <Banner></Banner> */}
+
         <UserDetails render={(user) => (
             <Box
               sx={{
@@ -95,11 +94,11 @@ const ProfilePage = () => {
             </Box>
           )}
         />
+
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
-
             justifyContent: "left",
             margin: "2rem",
           }}
