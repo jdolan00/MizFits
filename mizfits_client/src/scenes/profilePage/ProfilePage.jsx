@@ -2,12 +2,9 @@ import {
   Avatar,
   Box,
   Container,
-  Typography,
-  Grid,
   createTheme,
   List,
   ListItem,
-  ListItemAvatar,
   ListItemText,
   ListItemButton,
   ListItemIcon,
@@ -22,7 +19,6 @@ import HistoryIcon from "@mui/icons-material/History";
 import { Paragraph } from "typography";
 import { MainHeading } from "typography";
 import { ThemeProvider } from "@mui/material/styles";
-import { useEffect, useState } from "react";
 import UserDetails from "components/UserDetails";
 
 

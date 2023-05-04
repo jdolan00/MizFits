@@ -1,5 +1,4 @@
 import React from 'react';
-import UserPosts from 'components/UserPost';
 import { CssBaseline, Container, Typography, Box } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import PostForm from 'components/UserPost';

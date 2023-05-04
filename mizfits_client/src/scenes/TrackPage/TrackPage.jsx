@@ -1,9 +1,8 @@
 import { Container } from "@mui/material";
 import { CssBaseline, TextField, useMediaQuery } from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { Footer } from "components/Footer";
-import { useEffect, useState, setUser } from "react";
-import { useHistory } from "react-router-dom";
+import { useEffect, useState} from "react";
 import TrackInfo from "components/TrackInfo";
 import TrackForm from "./TrackForm";
 import { Box } from "@mui/material";

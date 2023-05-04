@@ -2,7 +2,7 @@ import React from "react";
 import "../scenes/TrackPage/TrackPage.css";
 
 function TrackInfo(props) {
-  const { title, type, time, distance, sets, reps, weight, description, date } =
+  const { title, type, time, distance, sets, reps, weight, description } =
     props.track;
 
   return (
