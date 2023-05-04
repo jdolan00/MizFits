@@ -7,12 +7,11 @@ import {
   PersonOutlineOutlined,
   InfoOutlined,
   FormatListBulleted,
-  Edit
+  Edit,
+  CancelPresentationOutlined,
 } from "@mui/icons-material";
-import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import { Typography, useMediaQuery, Button } from "@mui/material";
 import { desktopNavstyles, mobileNavstyles } from "../theme";
-
 
 const Navbar = ({ isLoggedIn, onLogin }) => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
@@ -26,15 +25,15 @@ const Navbar = ({ isLoggedIn, onLogin }) => {
     ? desktopNavstyles.icon
     : mobileNavstyles.icon;
 
-
   // Check for token to deliver different Navbar depending on login status
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
 
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     onLogin(false);
-    navigate('/');
+    navigate("/");
+    window.location.reload();
   };
   return (
     <nav
@@ -46,7 +45,13 @@ const Navbar = ({ isLoggedIn, onLogin }) => {
         <Bolt style={iconStyle} />
         <Typography>Mizfits</Typography>
       </div>
-      <ul style={isNonMobileScreens ? desktopNavstyles.navbarList : mobileNavstyles.navbarList}>
+      <ul
+        style={
+          isNonMobileScreens
+            ? desktopNavstyles.navbarList
+            : mobileNavstyles.navbarList
+        }
+      >
         {token ? (
           <>
             <div style={navbarItemStyle}>
@@ -58,11 +63,6 @@ const Navbar = ({ isLoggedIn, onLogin }) => {
               <Link to="/track" style={navbarLinkStyle}>
                 <Edit style={iconStyle} />
               </Link>
-            </div>
-            <div style={navbarItemStyle}>
-              <Button onClick={handleLogout} style={navbarLinkStyle}>
-                <LoginOutlinedIcon style={iconStyle} />
-              </Button>
             </div>
             <div style={navbarItemStyle}>
               <Link to="/profile" style={navbarLinkStyle}>
@@ -83,21 +83,19 @@ const Navbar = ({ isLoggedIn, onLogin }) => {
               <Link to="/about" style={navbarLinkStyle}>
                 <InfoOutlined style={iconStyle} />
               </Link>
-
+              <div style={navbarItemStyle}>
+                <Button onClick={handleLogout} style={navbarLinkStyle}>
+                  <CancelPresentationOutlined style={iconStyle} />
+                </Button>
+              </div>
             </div>
-
           </>
         ) : (
           <>
+
             <div style={navbarItemStyle}>
               <Link to="/" style={navbarLinkStyle}>
                 <CottageOutlined style={iconStyle} />
-              </Link>
-            </div>
-
-            <div style={navbarItemStyle}>
-              <Link to="/login" style={navbarLinkStyle}>
-                Login
               </Link>
             </div>
 

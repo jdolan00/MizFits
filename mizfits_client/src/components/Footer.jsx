@@ -3,12 +3,11 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 
-
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary">
       {"Copyright © "}
-      <Link color="inherit" href="https://www.mizfits.net/">
+      <Link color="inherit" href="https://www.mizfits.org/">
         Mizfits
       </Link>{" "}
       {new Date().getFullYear()}
@@ -29,7 +28,7 @@ export function Footer() {
           theme.palette.mode === "light"
             ? theme.palette.grey[200]
             : theme.palette.grey[800],
-        p: 2,
+        p: 1,
         position: "fixed",
         bottom: 0,
         left: 0,
@@ -46,7 +45,7 @@ export function Footer() {
             alignItems: "center",
           }}
         >
-        <Typography variant="subtitle1">MizFits</Typography>
+          <Typography variant="subtitle1">MizFits</Typography>
         </Box>
         <Copyright></Copyright>
       </Box>
@@ -54,13 +53,17 @@ export function Footer() {
         sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
       >
         <Typography variant="subtitle1">Contact</Typography>
-        <Typography variant="body2">Content for Box 2 goes here.</Typography>
+        <Typography variant="body2">mizfits@gmail.com</Typography>
       </Box>
       <Box
         sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
       >
-        <Typography variant="subtitle1">Follow Us</Typography>
-        <Typography variant="body2">Content for Box 3 goes here.</Typography>
+        <Typography variant="subtitle1">Follow The Project</Typography>
+        <a href="https://github.com/jdolan00/MizFits/">
+          <Typography variant="body2">
+            The Mizfits GitHub
+          </Typography>
+        </a>
       </Box>
     </Box>
   );

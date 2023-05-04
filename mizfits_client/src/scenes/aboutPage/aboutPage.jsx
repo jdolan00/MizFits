@@ -195,7 +195,7 @@ export default function AboutPage() {
                 <GitHubIcon sx={{ marginBottom: 0 }} />
               </Link>
               <Link
-                href="https://github.comjdolan00/MizFits/"
+                href="https://github.com/jdolan00/MizFits/"
                 underline="none"
                 color="inherit"
                 padding="1rem"
