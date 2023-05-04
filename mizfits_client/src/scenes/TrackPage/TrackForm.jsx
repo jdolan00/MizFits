@@ -75,7 +75,7 @@ function TrackForm( { userId, onSubmit }) {
   return (
       <form id="trackForm" onSubmit={( event ) => handleSubmit(event, onSubmit)}>
         <Box id="trackFormBox">
-          <label className="trackLabel" htmlFor="trackType">Select exercise type:</label>
+          <label className="trackLabel" htmlFor="trackType" style={{textAlign: "center"}}>Select exercise type:</label>
           <select className="trackInput" id="trackType" name="type" value={type} onChange={handleTypeChange}>
             <option value="">Select a type</option>
             <option value="cardio">Cardio</option>

@@ -7,7 +7,7 @@ function TrackInfo(props) {
 
   return (
     <div className="track-info">
-      <table align="center" style={{ width: "60%", margin: "0px 15rem"}}>
+      <table align="center" style={{ margin: "0px"}}>
         <tbody>
           <tr className="weights" >
             {type === "weights" && (
