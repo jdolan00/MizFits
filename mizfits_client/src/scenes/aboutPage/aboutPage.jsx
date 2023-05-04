@@ -11,7 +11,6 @@ import {
   Link,
 } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import { Footer } from "components/Footer";
 import { theme } from "theme";
 import Anna from "./images/Anna.jpg";
 import Levi from "./images/Levi.jpg";
@@ -205,6 +204,7 @@ export default function AboutPage() {
             </Paper>
           </Link>
         </Box>
+        <div style={{ height: "80px" }}></div>
       </Container>
       {/* <Footer></Footer> */}
     </ThemeProvider>

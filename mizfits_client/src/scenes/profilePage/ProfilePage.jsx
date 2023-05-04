@@ -25,6 +25,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 import UserDetails from "components/UserDetails";
 
+
 const theme = createTheme({
   components: {
     MuiCssBaseline: {

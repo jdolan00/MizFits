@@ -1,0 +1,30 @@
+table {
+  border: "2px solid black";
+}
+.track-form {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.weights   {
+    color: #ffffff;
+    background: #FE6969;
+    text-align: center;
+    border-bottom: 1px solid black;
+  }
+.cardio   {
+    color: black;
+    background: #FFE793;
+    text-align: center;
+  }
+.create   {
+    color: black;
+    background: white;
+    text-align: left;
+  }
+.create {
+    font-size: 15px;
+    flex-wrap: wrap;
+    white-space: normal;
+}

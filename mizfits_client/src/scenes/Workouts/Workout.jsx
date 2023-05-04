@@ -1,27 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import {
-  AppBar,
   CssBaseline,
   Box,
-  Toolbar,
   Typography,
   Container,
 } from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { Footer } from "components/Footer";
+import { theme } from "theme";
 
-const theme = createTheme({
-    components: {
-      MuiCssBaseline: {
-        styleOverrides: {
-          body: {
-            backgroundImage: `linear-gradient(90deg, #FE6969, #FFAE4F , #FFE793 )`,
-          },
-        },
-      },
-    },
-  });
+
   
   const Workout = () => {
     const { workoutName } = useParams();
