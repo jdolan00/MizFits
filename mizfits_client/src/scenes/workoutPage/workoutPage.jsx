@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CssBaseline, Grid, Box, Typography, Container } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { CardBase } from "components/CardBase";
@@ -8,27 +8,6 @@ import './workoutexamples.css';
 
 export default function Album() {
   const [selectedRoutine, setSelectedRoutine] = useState("");
-
-  const [workouts, setWorkouts] = useState([]);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchWorkouts = async () => {
-      try {
-        const response = await fetch('http://localhost:3001/api/workouts');
-        const data = await response.json();
-        setWorkouts(data);
-      } catch (error) {
-        setError(error);
-        return <div>Error: {error.message}</div>;
-      }
-    };
-    fetchWorkouts();
-  }, []);
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
 
   return (
     <ThemeProvider theme={theme}>

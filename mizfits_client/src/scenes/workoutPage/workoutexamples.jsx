@@ -7,6 +7,7 @@ const DisplayTable = ({ selectedDay }) => {
 const ThreeCardio = `
 <h1 align="center">3 Day Cardio Focus</h1>
 <h2 align="center">Day 1</h2>
+<ThemeProvider theme={TableTheme}>
           <table align="center">
             <thead>
               <tr>
@@ -144,6 +145,7 @@ const ThreeCardio = `
               </tr>
             </tbody>
           </table>
+          </ThemeProvider>
 `;
 
 const ThreeWeight = `
