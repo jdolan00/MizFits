@@ -1,7 +1,8 @@
 import { Box } from '@mui/material';
 import React, { useState } from 'react';
+import UserDetails from 'components/UserDetails';
 
-function TrackForm() {
+function TrackForm( { userId, onSubmit }) {
   const [type, setType] = useState('');
   const [title, setTitle] = useState('');
   const [time, setTime] = useState('');
@@ -11,12 +12,13 @@ function TrackForm() {
   const [weight, setWeight] = useState('');
   const [description, setDescription] = useState('');
   const [date, setDate] = useState('');
+  const [user, setUser] = useState('');
 
   const handleTypeChange = (event) => {
     setType(event.target.value); 
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event, onSubmit) => {
     event.preventDefault();
 
         // Prepare data to send to the server
@@ -30,6 +32,7 @@ function TrackForm() {
             weight: weight,
             description: description,
             date: date,
+            user: userId,
           };
 
           console.log(data);
@@ -48,6 +51,7 @@ function TrackForm() {
               }
           
               console.log('Exercise added successfully!');
+              onSubmit();
             } catch (error) {
               console.error('Error:', error);
             }
@@ -63,11 +67,12 @@ function TrackForm() {
           setWeight('');
           setDescription('');
           setDate('');
+          setUser('');
         };
 
 
   return (
-      <form id="trackForm" onSubmit={handleSubmit}>
+      <form id="trackForm" onSubmit={( event ) => handleSubmit(event, onSubmit)}>
         <Box id="trackFormBox">
           <label className="trackLabel" htmlFor="trackType">Select exercise type:</label>
           <select className="trackInput" id="trackType" name="type" value={type} onChange={handleTypeChange}>
