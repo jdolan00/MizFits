@@ -119,7 +119,7 @@ app.post('/api/tracks', async (req, res) => {
     const { title, type, time, distance, sets, reps, weight, description, date } = req.body;
     
     //Retrieve __id from User collection
-    const userId = req.user._id;
+    const userId = req.body.user;
 
     //Create new "Track", associate with userID
     const newTrack = new Track({
@@ -140,6 +140,25 @@ app.post('/api/tracks', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server Error' });
+  }
+});
+
+
+ /* Some weird stuff happening here, it's adding exactly one day somewhere and I can't figure out where */
+
+app.get("/api/tracks/user/:userId", verifyToken, async (req, res) => {
+  try {
+    const date = new Date(req.query.date);
+    const startOfDay = new Date(date.setHours(0, 0, 0, 0));
+    const endOfDay = new Date(date.setHours(23, 59, 59, 999));
+    const tracks = await Track.find({
+      user: req.params.userId,
+      date: { $gte: startOfDay, $lt: endOfDay },
+    });
+    res.json(tracks);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
   }
 });
 

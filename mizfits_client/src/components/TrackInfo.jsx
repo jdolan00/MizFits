@@ -21,7 +21,7 @@ function TrackInfo(props) {
         {type === 'create' && (
           <p>Description: {description}</p>
         )}
-        <p>Date: {date}</p>
+        {/* <p>Date: {date}</p>  NOT NEEDED FOR USERS SAKE */}
       </div>
     );
   }

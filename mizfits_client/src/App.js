@@ -9,6 +9,7 @@ import Workouts from './scenes/Workouts/Workouts';
 import Workout from './scenes/Workouts/Workout';
 import TrackingPage from './scenes/TrackPage/TrackPage';
 import ProtectedRoute from "./components/ProtectedRoute";
+import AboutPage from "scenes/aboutPage/aboutPage";
 
 
 
@@ -24,6 +25,7 @@ const App = () => {
       <Navbar isLoggedin={isLoggedIn} onLogin={handleLogin}/>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
         {/* PROTECTED ROUTES */}
         <Route
