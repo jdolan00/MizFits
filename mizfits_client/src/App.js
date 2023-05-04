@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import { BrowserRouter, /*Navigate,*/ Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
 import HomePage from './scenes/homePage/homePage';
@@ -10,7 +10,7 @@ import Workout from './scenes/Workouts/Workout';
 import TrackingPage from './scenes/TrackPage/TrackPage';
 import ProtectedRoute from "./components/ProtectedRoute";
 import AboutPage from "scenes/aboutPage/aboutPage";
-
+import FeedPage from "scenes/feedPage/FeedPage";
 
 
 const App = () => {
@@ -19,10 +19,10 @@ const App = () => {
   const handleLogin = (loggedIn) => {
     setIsLoggedIn(loggedIn);
   };
-  
+
   return (
     <BrowserRouter>
-      <Navbar isLoggedin={isLoggedIn} onLogin={handleLogin}/>
+      <Navbar isLoggedin={isLoggedIn} onLogin={handleLogin} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
@@ -36,6 +36,7 @@ const App = () => {
           <Route path="/workout" element={<WorkoutPage />} />
           <Route path="/workouts" element={<Workouts />} />
           <Route path="/workouts/:workoutName" element={<Workout />} />
+          <Route path="/feed" element={<FeedPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

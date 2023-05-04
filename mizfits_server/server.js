@@ -13,7 +13,6 @@ import path from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/usersRoutes.js";
-import postRoutes from "./routes/postsRoutes.js";
 import workoutRoutes from "./routes/workoutRoutes.js"
 import { register } from "./controllers/authController.js";
 import { login } from "./controllers/authController.js";
@@ -22,6 +21,8 @@ import { verifyToken } from "./middleware/auth.js";
 import User from "./models/User.js";
 import Workout from "./models/workout.js";
 import Track from "./models/Track.js"
+import postsRoutes from "./routes/postsRoutes.js";
+
 
 //import Post from "./models/Post.js";
 //import { users } from "./data/seedData.js";
@@ -39,6 +40,14 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
+app.use("/", postsRoutes);
+
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "Welcome to the Mizfit API!" });
+});
+
+
+
 
 /* FILE STORAGE */
 const storage = multer.diskStorage({
@@ -53,7 +62,7 @@ const upload = multer({ storage });
 
 app.post("/auth/register", register);
 app.post("/auth/login", login);
-app.post("/posts", verifyToken, createPost);
+app.post("/auth/posts", verifyToken, createPost);
 
 /* TOKEN VERIFICATION */
 
@@ -62,7 +71,7 @@ app.post("/posts", verifyToken, createPost);
 /* ROUTES */
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
-app.use("/posts", postRoutes);
+app.use("/posts", postsRoutes);
 app.use("/workouts", workoutRoutes)
 
 /* MONGOOSE SETUP */
@@ -117,7 +126,7 @@ app.post('/api/tracks', async (req, res) => {
   try {
     console.log('Got a request to create a new track');
     const { title, type, time, distance, sets, reps, weight, description, date } = req.body;
-    
+
     //Retrieve __id from User collection
     const userId = req.body.user;
 

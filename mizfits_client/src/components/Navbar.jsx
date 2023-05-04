@@ -12,6 +12,7 @@ import {
 } from "@mui/icons-material";
 import { Typography, useMediaQuery, Button } from "@mui/material";
 import { desktopNavstyles, mobileNavstyles } from "../theme";
+import GroupIcon from '@mui/icons-material/Group';
 
 const Navbar = ({ isLoggedIn, onLogin }) => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
@@ -67,6 +68,11 @@ const Navbar = ({ isLoggedIn, onLogin }) => {
             <div style={navbarItemStyle}>
               <Link to="/profile" style={navbarLinkStyle}>
                 <PersonOutlineOutlined style={iconStyle} />
+              </Link>
+            </div>
+            <div style={navbarItemStyle}>
+              <Link to="/feed" style={navbarLinkStyle}>
+                <GroupIcon style={iconStyle} />
               </Link>
             </div>
             <div style={navbarItemStyle}>
