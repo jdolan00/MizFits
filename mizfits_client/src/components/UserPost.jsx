@@ -1,46 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Grid, Typography, Card, CardContent } from '@mui/material';
+import React, { useState } from "react";
+import axios from "axios";
 
-const UserPosts = () => {
-    const [posts, setPosts] = useState([]);
+const PostForm = () => {
+    const [post, setPost] = useState("");
 
-    useEffect(() => {
-        fetchPosts();
-    }, []);
-
-    const fetchPosts = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         try {
-            const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-            const data = await response.json();
-            setPosts(data);
+            const response = await axios.post("http://localhost:3001/posts", { content: post });
+            console.log(response.data);
+            setPost("");
         } catch (error) {
-            console.error('Error fetching posts:', error);
+            console.error(error);
         }
     };
 
     return (
-        <Container maxWidth="md">
-            <Typography variant="h4" align="center" gutterBottom>
-                User Posts
-            </Typography>
-            <Grid container spacing={3}>
-                {posts.map((post) => (
-                    <Grid key={post.id} item xs={12} sm={6} md={4}>
-                        <Card>
-                            <CardContent>
-                                <Typography variant="h6" gutterBottom>
-                                    {post.title}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    {post.body}
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                ))}
-            </Grid>
-        </Container>
+        <form onSubmit={handleSubmit}>
+            <input
+                type="text"
+                value={post}
+                onChange={(e) => setPost(e.target.value)}
+                placeholder="How was your workout?"
+            />
+            <button type="submit">Submit</button>
+        </form>
     );
 };
 
-export default UserPosts;
+export default PostForm;
