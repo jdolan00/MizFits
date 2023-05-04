@@ -78,21 +78,7 @@ const TrackPage = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              marginTop: "-16rem",
-            }}
-          >
-            <UserDetails
-              render={(user) => (
-                <TrackForm userId={user._id} onSubmit={refreshTracks} />
-              )}
-            />
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginTop: "-18rem",
+              marginTop: "0rem",
               marginBottom: "16px",
             }}
           >
@@ -104,13 +90,27 @@ const TrackPage = () => {
               )}
             />
           </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: "-8rem",
+            }}
+          >
+            <UserDetails
+              render={(user) => (
+                <TrackForm userId={user._id} onSubmit={refreshTracks} />
+              )}
+            />
+          </Box>
           <Container
             sx={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              marginTop: "-2rem",
+              marginTop: "-7rem",
               marginBottom: "16px",
             }}
           >
@@ -212,7 +212,7 @@ const TrackPage = () => {
               </div>
             </Box>
           </Container>
-
+          <div style={{ height: "60px" }}></div>
           <Footer></Footer>
         </ThemeProvider>
 
