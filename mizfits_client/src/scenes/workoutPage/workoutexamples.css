@@ -41,6 +41,4 @@ table tbody tr:first-child td:last-child {
   border-top-right-radius: 32px;
 }
 
-table tbody tr {
-  border-top: 1px solid black;
-}
+

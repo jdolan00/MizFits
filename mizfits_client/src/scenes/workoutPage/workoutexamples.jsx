@@ -1,9 +1,5 @@
 import React from "react";
 
-const DisplayTable = ({ selectedDay }) => {
-  return <div dangerouslySetInnerHTML={{ __html: selectedDay }}></div>;
-};
-
 const ThreeCardio = `
 <h1 align="center">3 Days</h1>
 <h1 align="center">Cardio Focused</h1>
@@ -1116,7 +1112,6 @@ const FiveWeight = `
 `;
 
 export {
-  DisplayTable,
   ThreeCardio,
   ThreeWeight,
   FourCardio,
