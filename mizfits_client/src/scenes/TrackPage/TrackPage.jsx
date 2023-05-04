@@ -1,5 +1,5 @@
 import { Container } from "@mui/material";
-import { CssBaseline, TextField } from "@mui/material";
+import { CssBaseline, TextField, useMediaQuery } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Footer } from "components/Footer";
 import { useEffect, useState, setUser } from "react";
@@ -15,6 +15,8 @@ import { theme } from "theme";
 import "./TrackPage.css";
 
 const TrackPage = () => {
+  const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
+
   const [tracks, setTracks] = useState(null);
   const [selectedDate, setSelectedDate] = useState(new Date());
 
@@ -67,296 +69,301 @@ const TrackPage = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          marginTop: "-20rem",
-        }}
-      >
-        <UserDetails
-          render={(user) => (
-            <TrackForm userId={user._id} onSubmit={refreshTracks} />
-          )}
-        />
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          marginTop: "-22rem",
-          marginBottom: "16px",
-        }}
-      >
-        <UserDetails
-          render={(user) => (
-            <p>
-              Logged in as {user.firstName} {user.lastName}
-            </p>
-          )}
-        />
-      </Box>
-      <Container
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          marginTop: "-2rem",
-          marginBottom: "16px",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            marginTop: "16px",
-            marginBottom: "16px",
-            backgroundColor: "white",
-            padding: "15px",
-            border: "2px solid black",
-            borderRadius: "16px",
-          }}
-        >
-          <div className="track">
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <DatePicker
-                label="Select Date"
-                value={selectedDate}
-                onChange={handleDateChange}
-                renderInput={(params) => <TextField {...params} />}
-              />
-            </LocalizationProvider>
-          </div>
-        </Box>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            width: "40%",
-            margin: "0 auto",
-          }}
-        >
+    <>
+      {isNonMobileScreens ? (
+            <ThemeProvider theme={theme}>
+          <CssBaseline />
           <Box
-            style={{
-              backgroundColor: "#FE6969",
-              width: "30%",
-              height: "50px",
-              border: "1px solid black",
-              borderRadius: "32px",
+            sx={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "24px",
-              color: "white"
+              marginTop: "-16rem",
             }}
           >
-            <p>Weights</p>
+            <UserDetails
+              render={(user) => (
+                <TrackForm userId={user._id} onSubmit={refreshTracks} />
+              )}
+            />
           </Box>
           <Box
-            style={{
-              backgroundColor: "#FFE793",
-              width: "30%",
-              height: "50px",
-              border: "1px solid black",
-              borderRadius: "32px",
+            sx={{
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "24px",
+              marginTop: "-18rem",
+              marginBottom: "16px",
             }}
           >
-            <p>Cardio</p>
+            <UserDetails
+              render={(user) => (
+                <p>
+                  Logged in as {user.firstName} {user.lastName}
+                </p>
+              )}
+            />
           </Box>
-          <Box
-            style={{
-              backgroundColor: "white",
-              width: "30%",
-              height: "50px",
-              border: "1px solid black",
-              borderRadius: "32px",
+          <Container
+            sx={{
               display: "flex",
+              flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "24px",
+              marginTop: "-2rem",
+              marginBottom: "16px",
             }}
           >
-            <p>Custom</p>
-          </Box>
-        </div>
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            marginTop: "16px",
-            marginBottom: "16px",
-          }}
-        >
-          <div className="tracks">
-            {tracks &&
-              tracks.map((track) => (
-                <TrackInfo key={track._id} track={track} />
-              ))}
-          </div>
-        </Box>
-      </Container>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "16px",
+                marginBottom: "16px",
+                backgroundColor: "white",
+                padding: "15px",
+                border: "2px solid black",
+                borderRadius: "16px",
+              }}
+            >
+              <div className="track">
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    label="Select Date"
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                    renderInput={(params) => <TextField {...params} />}
+                  />
+                </LocalizationProvider>
+              </div>
+            </Box>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                width: "40%",
+                margin: "0 auto",
+              }}
+            >
+              <Box
+                style={{
+                  backgroundColor: "#FE6969",
+                  width: "30%",
+                  height: "50px",
+                  border: "1px solid black",
+                  borderRadius: "32px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "24px",
+                  color: "white",
+                }}
+              >
+                <p>Weights</p>
+              </Box>
+              <Box
+                style={{
+                  backgroundColor: "#FFE793",
+                  width: "30%",
+                  height: "50px",
+                  border: "1px solid black",
+                  borderRadius: "32px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "24px",
+                }}
+              >
+                <p>Cardio</p>
+              </Box>
+              <Box
+                style={{
+                  backgroundColor: "white",
+                  width: "30%",
+                  height: "50px",
+                  border: "1px solid black",
+                  borderRadius: "32px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "24px",
+                }}
+              >
+                <p>Custom</p>
+              </Box>
+            </div>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "16px",
+                marginBottom: "16px",
+                width: "60%",
+              }}
+            >
+              <div className="tracks">
+                {tracks &&
+                  tracks.map((track) => (
+                    <TrackInfo key={track._id} track={track} />
+                  ))}
+              </div>
+            </Box>
+          </Container>
 
-      <Footer></Footer>
-    </ThemeProvider>
+          <Footer></Footer>
+        </ThemeProvider>
+
+        
+      ) : (
+          <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: "-15rem",
+              width: "100%",
+            }}
+          >
+            <UserDetails
+              render={(user) => (
+                <TrackForm userId={user._id} onSubmit={refreshTracks} />
+              )}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: "-16rem",
+              marginBottom: "16px",
+            }}
+          >
+            <UserDetails
+              render={(user) => (
+                <p>
+                  Logged in as {user.firstName} {user.lastName}
+                </p>
+              )}
+            />
+          </Box>
+          <Container
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: "-2rem",
+              marginBottom: "16px",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "16px",
+                marginBottom: "16px",
+                backgroundColor: "white",
+                padding: "15px",
+                border: "2px solid black",
+                borderRadius: "16px",
+              }}
+            >
+              <div className="track">
+                <LocalizationProvider dateAdapter={AdapterDateFns}>
+                  <DatePicker
+                    label="Select Date"
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                    renderInput={(params) => <TextField {...params} />}
+                  />
+                </LocalizationProvider>
+              </div>
+            </Box>
+            <Container
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                width: "100%",
+                margin: "0 auto",
+              }}
+            >
+              <Box
+                style={{
+                  backgroundColor: "#FE6969",
+                  width: "30%",
+                  height: "50px",
+                  border: "1px solid black",
+                  borderRadius: "32px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "24px",
+                  color: "white",
+                }}
+              >
+                <p>Weights</p>
+              </Box>
+              <Box
+                style={{
+                  backgroundColor: "#FFE793",
+                  width: "30%",
+                  height: "50px",
+                  border: "1px solid black",
+                  borderRadius: "32px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "24px",
+                }}
+              >
+                <p>Cardio</p>
+              </Box>
+              <Box
+                style={{
+                  backgroundColor: "white",
+                  width: "30%",
+                  height: "50px",
+                  border: "1px solid black",
+                  borderRadius: "32px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "24px",
+                }}
+              >
+                <p>Custom</p>
+              </Box>
+            </Container>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "16px",
+                width: "110%",
+              }}
+            >
+              <div className="tracks">
+                {tracks &&
+                  tracks.map((track) => (
+                    <TrackInfo key={track._id} track={track} />
+                  ))}
+              </div>
+            </Box>
+          </Container>
+          <div style={{ height: "60px" }}></div>
+          <Footer></Footer>
+        </ThemeProvider>
+      )}
+</>
   );
 };
 export default TrackPage;
-
-
-// { <ThemeProvider theme={theme}>
-// { <CssBaseline />
-// <Box
-//   sx={{
-//     display: "flex",
-//     alignItems: "center",
-//     justifyContent: "center",
-//     marginTop: "-20rem",
-//   }}
-// >
-//   <UserDetails
-//     render={(user) => (
-//       <TrackForm userId={user._id} onSubmit={refreshTracks} />
-//     )}
-//   />
-// </Box>
-// <Box
-//   sx={{
-//     display: "flex",
-//     alignItems: "center",
-//     justifyContent: "center",
-//     marginTop: "-22rem",
-//     marginBottom: "16px",
-//   }}
-// >
-//   <UserDetails
-//     render={(user) => (
-//       <p>
-//         Logged in as {user.firstName} {user.lastName}
-//       </p>
-//     )}
-//   />
-// </Box>
-// <Container
-//   sx={{
-//     display: "flex",
-//     flexDirection: "column",
-//     alignItems: "center",
-//     justifyContent: "center",
-//     marginTop: "-2rem",
-//     marginBottom: "16px",
-//   }}
-// >
-//   <Box
-//     sx={{
-//       display: "flex",
-//       alignItems: "center",
-//       justifyContent: "center",
-//       marginTop: "16px",
-//       marginBottom: "16px",
-//       backgroundColor: "white",
-//       padding: "15px",
-//       border: "2px solid black",
-//       borderRadius: "16px",
-//     }}
-//   >
-//     <div className="track">
-//       <LocalizationProvider dateAdapter={AdapterDateFns}>
-//         <DatePicker
-//           label="Select Date"
-//           value={selectedDate}
-//           onChange={handleDateChange}
-//           renderInput={(params) => <TextField {...params} />}
-//         />
-//       </LocalizationProvider>
-//     </div>
-//   </Box>
-//   <div
-//     style={{
-//       display: "flex",
-//       justifyContent: "space-between",
-//       alignItems: "center",
-//       width: "40%",
-//       margin: "0 auto",
-//     }}
-//   >
-//     <Box
-//       style={{
-//         backgroundColor: "#FE6969",
-//         width: "30%",
-//         height: "50px",
-//         border: "1px solid black",
-//         borderRadius: "32px",
-//         display: "flex",
-//         alignItems: "center",
-//         justifyContent: "center",
-//         fontSize: "24px",
-//         color: "white"
-//       }}
-//     >
-//       <p>Weights</p>
-//     </Box>
-//     <Box
-//       style={{
-//         backgroundColor: "#FFE793",
-//         width: "30%",
-//         height: "50px",
-//         border: "1px solid black",
-//         borderRadius: "32px",
-//         display: "flex",
-//         alignItems: "center",
-//         justifyContent: "center",
-//         fontSize: "24px",
-//       }}
-//     >
-//       <p>Cardio</p>
-//     </Box>
-//     <Box
-//       style={{
-//         backgroundColor: "white",
-//         width: "30%",
-//         height: "50px",
-//         border: "1px solid black",
-//         borderRadius: "32px",
-//         display: "flex",
-//         alignItems: "center",
-//         justifyContent: "center",
-//         fontSize: "24px",
-//       }}
-//     >
-//       <p>Custom</p>
-//     </Box>
-//   </div>
-//   <Box
-//     sx={{
-//       display: "flex",
-//       alignItems: "center",
-//       justifyContent: "center",
-//       marginTop: "16px",
-//       marginBottom: "16px",
-//     }}
-//   >
-//     <div className="tracks">
-//       {tracks &&
-//         tracks.map((track) => (
-//           <TrackInfo key={track._id} track={track} />
-//         ))}
-//     </div>
-//   </Box>
-// </Container>
-
-// <Footer></Footer>
-// </ThemeProvider>
-// );
-// };
