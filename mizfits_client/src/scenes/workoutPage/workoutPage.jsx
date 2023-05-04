@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
-import { CssBaseline, Grid, Box, Typography, Container } from "@mui/material";
+import React, { useState } from "react";
+import {
+  CssBaseline,
+  Grid,
+  Box,
+  Typography,
+  Container,
+  Divider,
+} from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { CardBase } from "components/CardBase";
 import { Footer } from "components/Footer";
 import { theme } from "theme";
-import './workoutexamples.css';
+import "./workoutexamples.css";
 
 export default function Album() {
   const [selectedRoutine, setSelectedRoutine] = useState("");
@@ -13,7 +20,7 @@ export default function Album() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <main>
-      <Box sx={{ pt: 8 }}>
+        <Box sx={{ pt: 8 }}>
           <Container>
             <Typography component="h1" variant="h2" align="center" gutterBottom>
               Where to begin?
@@ -55,9 +62,13 @@ export default function Album() {
               setSelectedRoutine={setSelectedRoutine}
             ></CardBase>
           </Grid>
+          <Divider
+            color="black"
+            sx={{ borderBottomWidth: "10px", margin: "3rem", width: "90%" }}
+          ></Divider>
           <div dangerouslySetInnerHTML={{ __html: selectedRoutine }}></div>
         </Container>
-        <div style={{ height: '80px' }}></div>
+        <div style={{ height: "80px" }}></div>
       </main>
       <Footer></Footer>
     </ThemeProvider>
