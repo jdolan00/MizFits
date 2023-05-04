@@ -3,19 +3,13 @@ import { CssBaseline, Container, Typography, Box } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import PostForm from 'components/UserPost';
 import PostsList from 'components/PostList';
-
-const theme = createTheme();
+import {theme} from '../../theme';
 
 const FeedPage = () => {
     const headerContainerStyle = {
-        backgroundColor: "#000",
         paddingTop: "20px",
         paddingBottom: "20px",
         marginBottom: "20px",
-    };
-
-    const headerTextStyle = {
-        color: "#ffffff",
     };
 
     return (
@@ -24,8 +18,8 @@ const FeedPage = () => {
                 <CssBaseline />
                 <Box sx={headerContainerStyle}>
                     <Container maxWidth="md">
-                        <Typography variant="h2" align="center" gutterBottom sx={headerTextStyle}>
-                            MizFit
+                        <Typography variant="h2" align="center" gutterBottom>
+                           Social feed
                         </Typography>
                     </Container>
                 </Box>
