@@ -70,6 +70,7 @@ import {
             </ul>
           </Container>
         </main>
+        <div style={{ height: "80px" }}></div>
         <Footer />
       </ThemeProvider>
     );
