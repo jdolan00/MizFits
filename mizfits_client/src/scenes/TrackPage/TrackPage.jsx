@@ -225,7 +225,7 @@ const TrackPage = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              marginTop: "-15rem",
+              marginTop: "0rem",
               width: "100%",
             }}
           >
@@ -240,7 +240,7 @@ const TrackPage = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              marginTop: "-16rem",
+              marginTop: "-5rem",
               marginBottom: "16px",
             }}
           >
