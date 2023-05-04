@@ -99,6 +99,7 @@ const initialValuesLogin = {
         onLogin(true)
         console.log("Token set in local storage:", localStorage.getItem("token"));
         navigate("/");
+        window.location.reload();
       } else{
         onSubmitProps.setErrors({email: "Invalid email or password!"});
       }

@@ -1,12 +1,7 @@
 import Form from "./Form";
-import {
-  CssBaseline,
-  Box,
-  useMediaQuery,
-  Typography,
-} from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
-import {theme} from "theme"
+import { CssBaseline, Box, useMediaQuery, Typography } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "theme";
 import { Footer } from "components/Footer";
 
 
@@ -16,17 +11,17 @@ const LoginPage = ({ onLogin }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-    <Box textAlign="center">
-      <Box
-        width="100%"
-        backgroundColor={theme.palette.background.alt}
-        p="1rem 6%"
-        textAlign="center"
-      >
-        <Typography fontWeight="bold" fontSize="32px" color="primary">
-          MizFits
-        </Typography>
-      </Box>
+      <Box textAlign="center">
+        <Box
+          width="100%"
+          backgroundColor={theme.palette.background.alt}
+          p="1rem 6%"
+          textAlign="center"
+        >
+          <Typography fontWeight="bold" fontSize="32px" color="primary">
+            MizFits
+          </Typography>
+        </Box>
 
       <Box
         width={isNonMobileScreens ? "30%" : "93%"}
@@ -40,8 +35,8 @@ const LoginPage = ({ onLogin }) => {
         </Typography>
         <Form onLogin={onLogin}/>
       </Box>
-    </Box>
-    <Footer></Footer>
+      </Box>
+      <Footer></Footer>
     </ThemeProvider>
   );
 };

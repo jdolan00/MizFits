@@ -8,20 +8,11 @@ import {
     Typography,
     Container,
   } from '@mui/material';
-  import { createTheme, ThemeProvider } from '@mui/material/styles';
+  import { ThemeProvider } from '@mui/material/styles';
   import { Footer } from 'components/Footer';
+  import "./Workouts.css"
+  import { theme } from "theme";
   
-  const theme = createTheme({
-    components: {
-      MuiCssBaseline: {
-        styleOverrides: {
-          body: {
-            backgroundImage: `linear-gradient(90deg, #FE6969, #FFAE4F , #FFE793 )`,
-          },
-        },
-      },
-    },
-  });
   
   const Workouts = () => {
     const [workouts, setWorkouts] = useState([]);
@@ -72,13 +63,14 @@ import {
             </Container>
           </Box>
           <Container maxWidth="md">
-            <ul>
+            <ul class="column-list">
               {workouts.map((workout) => (
                 <WorkoutLink key={workout._id} workout={workout} />
               ))}
             </ul>
           </Container>
         </main>
+        <div style={{ height: "80px" }}></div>
         <Footer />
       </ThemeProvider>
     );

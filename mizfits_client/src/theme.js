@@ -150,7 +150,7 @@ export const desktopNavstyles = {
     justifyContent: "center",
     alignItems: "flex-start",
     padding: "0px 10px",
-    zIndex: 999,
+
   },
   icon: {
     color: "black",
@@ -206,3 +206,4 @@ export const mobileNavstyles = {
     marginRight: "5px",
   },
 };
+
