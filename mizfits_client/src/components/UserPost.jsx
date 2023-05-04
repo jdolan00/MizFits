@@ -1,30 +1,76 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Button, TextField, Box, Typography } from "@mui/material";
 
 const PostForm = () => {
     const [post, setPost] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const token = localStorage.getItem('auth-token'); // Replace with the actual method you use to store the token
+        if (!token) {
+            console.error('No token found');
+            return;
+        }
+
         try {
-            const response = await axios.post("http://localhost:3001/posts", { content: post });
-            console.log(response.data);
-            setPost("");
+            const response = await axios.post('http://localhost:3001/auth/posts', { content: post }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+
+            console.log('Post created:', response.data);
         } catch (error) {
-            console.error(error);
+            console.error('Error creating post:', error);
         }
     };
 
+    const formContainerStyle = {
+        backgroundColor: "#ffffff",
+        width: "500px",
+        maxWidth: "100%",
+        borderRadius: "5px",
+        padding: "20px",
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+        margin: "20px auto",
+    };
+
+    const inputContainerStyle = {
+        display: "flex",
+        flexDirection: "column",
+        marginBottom: "10px",
+    };
+
+    const button = {
+        backgroundColor: "#000",
+    }
+
+    const token = localStorage.getItem("token");
+    const user = JSON.parse(atob(token.split('.')[1]));
+
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                value={post}
-                onChange={(e) => setPost(e.target.value)}
-                placeholder="How was your workout?"
-            />
-            <button type="submit">Submit</button>
-        </form>
+        <Box sx={formContainerStyle}>
+            <Typography variant="h6">
+                {user.firstName} {user.lastName} ({user.email})
+            </Typography>
+            <form onSubmit={handleSubmit}>
+                <Box sx={inputContainerStyle}>
+                    <TextField
+                        type="text"
+                        value={post}
+                        onChange={(e) => setPost(e.target.value)}
+                        placeholder="How was your workout?"
+                        variant="outlined"
+                        fullWidth
+                    />
+                </Box>
+                <Button sx={button} type="submit" variant="contained">
+                    Submit
+                </Button>
+            </form>
+        </Box>
     );
 };
 

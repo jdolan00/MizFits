@@ -21,7 +21,7 @@ import { verifyToken } from "./middleware/auth.js";
 import User from "./models/User.js";
 import Workout from "./models/workout.js";
 import Track from "./models/Track.js"
-import postRoutes from "./routes/messageRoutes.js";
+import postsRoutes from "./routes/postsRoutes.js";
 
 
 //import Post from "./models/Post.js";
@@ -40,7 +40,7 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
-app.use("/posts", messageRoutes);
+app.use("/", postsRoutes);
 
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Welcome to the Mizfit API!" });
@@ -62,7 +62,7 @@ const upload = multer({ storage });
 
 app.post("/auth/register", register);
 app.post("/auth/login", login);
-app.post("/posts", verifyToken, createPost);
+app.post("/auth/posts", verifyToken, createPost);
 
 /* TOKEN VERIFICATION */
 
@@ -71,7 +71,7 @@ app.post("/posts", verifyToken, createPost);
 /* ROUTES */
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
-app.use("/posts", postRoutes);
+app.use("/posts", postsRoutes);
 app.use("/workouts", workoutRoutes)
 
 /* MONGOOSE SETUP */
