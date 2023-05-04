@@ -9,6 +9,7 @@ import {
   FormatListBulleted,
   Edit
 } from "@mui/icons-material";
+import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import { Typography, useMediaQuery, Button } from "@mui/material";
 import { desktopNavstyles, mobileNavstyles } from "../theme";
 
@@ -60,7 +61,7 @@ const Navbar = ({ isLoggedIn, onLogin }) => {
             </div>
             <div style={navbarItemStyle}>
               <Button onClick={handleLogout} style={navbarLinkStyle}>
-                Logout
+                <LoginOutlinedIcon style={iconStyle} />
               </Button>
             </div>
             <div style={navbarItemStyle}>
