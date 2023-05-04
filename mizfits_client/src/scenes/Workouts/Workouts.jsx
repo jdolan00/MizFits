@@ -10,6 +10,7 @@ import {
   } from '@mui/material';
   import { createTheme, ThemeProvider } from '@mui/material/styles';
   import { Footer } from 'components/Footer';
+  import "./Workouts.css"
   
   const theme = createTheme({
     components: {
@@ -72,7 +73,7 @@ import {
             </Container>
           </Box>
           <Container maxWidth="md">
-            <ul>
+            <ul class="column-list">
               {workouts.map((workout) => (
                 <WorkoutLink key={workout._id} workout={workout} />
               ))}

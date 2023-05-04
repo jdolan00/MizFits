@@ -8,27 +8,61 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { Link } from 'react-router-dom';
+import {
+  ThreeCardio,
+  ThreeWeight,
+  FourCardio,
+  FourWeight,
+  FiveCardio,
+  FiveWeight,
+} from "../scenes/workoutPage/workoutexamples"
 
 export function CardBase(props) {
+  const handleSelect = (value) => {
+    switch (value) {
+      case "ThreeCardio":
+        props.setSelectedRoutine(ThreeCardio);
+        break;
+      case "ThreeWeight":
+        props.setSelectedRoutine(ThreeWeight);
+        break;
+      case "FourCardio":
+        props.setSelectedRoutine(FourCardio);
+        break;
+      case "FourWeight":
+        props.setSelectedRoutine(FourWeight);
+        break;
+      case "FiveCardio":
+        props.setSelectedRoutine(FiveCardio);
+        break;
+      case "FiveWeight":
+        props.setSelectedRoutine(FiveWeight);
+        break;
+      default:
+        props.setSelectedRoutine("");
+        break;
+    }
+  };
+
   return (
     <Grid item key={Card} md={4}>
-      <Card sx={{ borderRadius: "16px" }}>
-        <CardMedia component="img" image={props.img} />
-        <CardContent>
+      <Card sx={{ borderRadius: "16px"}}>
+        <CardMedia component="img" image={props.img} sx={{ mb: "-12px"}} />
+        <CardContent sx={{ textAlign: "center" }}>
           <Typography gutterBottom variant="h5" component="h2">
             {props.days}
           </Typography>
           <Typography>{props.subtext}</Typography>
         </CardContent>
-        <CardActions>
-          <Link to="/routine">
-            <Button size="small">{props.button1}</Button>
-          </Link>
-          <Button size="small">{props.button2}</Button>
+        <CardActions sx={{ justifyContent: "center", mt: -1  }}>
+          <Button size="small" onClick={() => handleSelect(props.button1)}>
+            Cardio
+          </Button>
+          <Button size="small" onClick={() => handleSelect(props.button2)}>
+            Weights
+          </Button>
         </CardActions>
       </Card>
     </Grid>
   );
 }
-// image1 = "https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?cs=srgb&dl=pexels-victor-freitas-841130.jpg&fm=jpg"
