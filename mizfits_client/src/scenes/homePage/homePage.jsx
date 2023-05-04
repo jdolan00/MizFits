@@ -94,9 +94,7 @@ export default function HomePage() {
                     </Typography>
 
                     {token ? (
-                      <>
-
-                      </>
+                      <></>
                     ) : (
                       <>
                         <Button
@@ -215,17 +213,36 @@ export default function HomePage() {
                     <Typography variant="h6" align="center">
                       Start tracking your activity today.
                     </Typography>
-                    <Button
-                      sx={{
-                        width: "60%",
-                        bgcolor: "white",
-                        color: "black",
-                        marginTop: "1rem",
-                        marginLeft: "0",
-                      }}
-                    >
-                      Create an account
-                    </Button>
+
+                    {token ? (
+                      <></>
+                    ) : (
+                      <>
+                        <Button
+                          component={Link}
+                          to="/login"
+                          sx={{
+                            width: "80%",
+                            bgcolor: "white",
+                            color: "black",
+                            margin: "2rem",
+                            marginLeft: "0",
+                          }}
+                        >
+                          <Box
+                            sx={{
+                              display: "flex",
+                              alignItems: "center",
+                              flexDirection: "column",
+                            }}
+                          >
+                            <Typography>Login</Typography>
+                            <Typography variant="caption">or</Typography>
+                            <Typography>Create an account</Typography>
+                          </Box>
+                        </Button>
+                      </>
+                    )}
                   </Box>
                 </Grid>
                 <Grid item xs={12} sm={8}>

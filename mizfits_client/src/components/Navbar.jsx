@@ -74,21 +74,25 @@ const Navbar = ({ isLoggedIn, onLogin }) => {
                 <FitnessCenterOutlined style={iconStyle} />
               </Link>
             </div>
+
             <div style={navbarItemStyle}>
               <Link to="/workouts" style={navbarLinkStyle}>
                 <FormatListBulleted style={iconStyle} />
               </Link>
             </div>
+
             <div style={navbarItemStyle}>
               <Link to="/about" style={navbarLinkStyle}>
                 <InfoOutlined style={iconStyle} />
               </Link>
+              </div>
+              
               <div style={navbarItemStyle}>
                 <Button onClick={handleLogout} style={navbarLinkStyle}>
                   <CancelPresentationOutlined style={iconStyle} />
                 </Button>
               </div>
-            </div>
+
           </>
         ) : (
           <>
