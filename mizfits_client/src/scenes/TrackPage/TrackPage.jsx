@@ -2,12 +2,13 @@ import { Container } from "@mui/material";
 import { CssBaseline, TextField, useMediaQuery } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { Footer } from "components/Footer";
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import TrackInfo from "components/TrackInfo";
 import TrackForm from "./TrackForm";
 import { Box } from "@mui/material";
 import UserDetails from "components/UserDetails";
-import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import jwt_decode from "jwt-decode";
 import { theme } from "theme";
@@ -33,7 +34,7 @@ const TrackPage = () => {
         console.log("Selected date:", selectedDate);
         console.log("Date string:", dateString);
         const response = await fetch(
-          `http://localhost:3001/api/tracks/user/${userId}?date=${dateString}`,
+          `https://mizfit.azurewebsites.net/api/tracks/user/${userId}?date=${dateString}`,
           {
             method: "GET",
             headers: {
@@ -70,7 +71,7 @@ const TrackPage = () => {
   return (
     <>
       {isNonMobileScreens ? (
-            <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
           <CssBaseline />
           <Box
             sx={{
@@ -215,9 +216,9 @@ const TrackPage = () => {
           <Footer></Footer>
         </ThemeProvider>
 
-        
+
       ) : (
-          <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
           <CssBaseline />
           <Box
             sx={{
@@ -362,7 +363,7 @@ const TrackPage = () => {
           <Footer></Footer>
         </ThemeProvider>
       )}
-</>
+    </>
   );
 };
 export default TrackPage;

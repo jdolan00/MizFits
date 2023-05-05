@@ -11,7 +11,7 @@ const UserDetails = ({ render }) => {
         const decoded = jwt_decode(token);
         const userId = decoded.id;
 
-        const response = await fetch(`http://localhost:3001/api/user/${userId}`, {
+        const response = await fetch(`https://mizfit.azurewebsites.net/api/user/${userId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

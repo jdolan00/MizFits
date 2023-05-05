@@ -14,7 +14,7 @@ const PostForm = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:3001/auth/posts', { content: post }, {
+            const response = await axios.post('https://mizfit.azurewebsites.net/auth/posts', { content: post }, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },
