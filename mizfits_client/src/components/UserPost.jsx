@@ -8,7 +8,6 @@ const PostForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        localStorage.setItem('auth-token', token);
         if (!token) {
             console.error('No token found');
             return;
@@ -26,6 +25,7 @@ const PostForm = () => {
             console.error('Error creating post:', error);
         }
     };
+
 
     const formContainerStyle = {
         backgroundColor: "#ffffff",
