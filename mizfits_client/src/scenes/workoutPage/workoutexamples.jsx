@@ -126,7 +126,7 @@ const ThreeCardio = `
                 <td>3</td>
                 <td>15, 12, 10</td>
               </tr>
-                <td><a href="/Workouts/Single-arm DB Rowing">Single-arm DB Rowing</td></a>
+                <td><a href="/Workouts/Single-arm Dumbbell Row">Single-arm Dumbbell Row</td></a>
                 <td>3</td>
                 <td>12, 10, 8</td>
               </tr>
@@ -159,7 +159,7 @@ const ThreeWeight = `
   </thead>
   <tbody>
     <tr>
-      <td><a href="/Workouts/Bench press">Bench press</td></a>
+      <td><a href="/Workouts/Bench Press">Bench Press</td></a>
       <td>3</td>
       <td>10-12</td>
     </tr>
@@ -174,7 +174,7 @@ const ThreeWeight = `
       <td>12-15</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/Dumbbell lateral Raises">Dumbbell lateral Raises</td></a>
+      <td><a href="/Workouts/Dumbbell Lateral Raises">Dumbbell Lateral Raises</td></a>
       <td>2</td>
       <td>10-12</td>
     </tr>
@@ -240,17 +240,17 @@ const ThreeWeight = `
       <td>10-12</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/Seated Cable Rowing">Seated Cable Rowing</td></a>
+      <td><a href="/Workouts/Seated Cable Row">Seated Cable Row</td></a>
       <td>3</td>
       <td>10-12</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/Single-arm Dumbbell Rowing">Single-arm Dumbbell Rowing</td></a>
+      <td><a href="/Workouts/Single-arm Dumbbell Row">Single-arm Dumbbell Row</td></a>
       <td>2</td>
       <td>8-10</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/Reverse Pec Deck Fly">Reverse Pec Deck Fly</td></a>
+      <td><a href="/Workouts/Reverse Pec Fly">Reverse Pec Fly</td></a>
       <td>3</td>
       <td>12-15</td>
     </tr>
@@ -282,7 +282,7 @@ const FourCardio = `
       <td>10-min</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/Bench press">Bench press</td></a>
+      <td><a href="/Workouts/Bench Press">Bench Press</td></a>
       <td>4</td>
       <td>8-12</td>
     </tr>
@@ -325,12 +325,12 @@ const FourCardio = `
       <td>8-12</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/Incline Dumbbell Bench">Incline Dumbbell Bench</td></a>
+      <td><a href="/Workouts/Incline Dumbbell Press">Incline Dumbbell Press</td></a>
       <td>4</td>
       <td>8-12</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/Dumbbell Lateral Raise">Dumbbell Lateral Raise</td></a>
+      <td><a href="/Workouts/Dumbbell Lateral Raises">Dumbbell Lateral Raises</td></a>
       <td>4</td>
       <td>8-12</td>
     </tr>
@@ -367,7 +367,7 @@ const FourCardio = `
     <td>8-12</td>
   </tr>
   <tr>
-    <td><a href="/Workouts/Barbell Bent-over Rowing">Barbell Bent-over Rowing</td></a>
+    <td><a href="/Workouts/Barbell Bent-Over Rowing">Barbell Bent-Over Rowing</td></a>
     <td>4</td>
     <td>8-12</td>
   </tr>
@@ -434,17 +434,17 @@ const FourWeight = `
   </thead>
   <tbody>
     <tr>
-      <td><a href="/Workouts/Bench press">Bench press</td></a>
+      <td><a href="/Workouts/Bench Press">Bench Press</td></a>
       <td>4</td>
       <td>8-12</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/Cable Triceps Pushdown">Cable Triceps Pushdown</td></a>
+      <td><a href="/Workouts/Rope Pushdown">Rope Pushdown</td></a>
       <td>3</td>
       <td>10-12</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/DB Overhead Press">DB Overhead Press</td></a>
+      <td><a href="/Workouts/Dumbbell Overhead Press">Dumbbell Overhead Press</td></a>
       <td>4</td>
       <td>8-12</td>
     </tr>
@@ -454,7 +454,7 @@ const FourWeight = `
       <td>10-15</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/EZ Bar Biceps Curl">EZ Bar Biceps Curl</td></a>
+      <td><a href="/Workouts/Bicep Curl">Bicep Curl</td></a>
       <td>3</td>
       <td>10-12</td>
     </tr>
@@ -501,7 +501,7 @@ const FourWeight = `
     <td>As many possible</td>
   </tr>
   <tr>
-    <td><a href="/Workouts/Incline Dumbbell Bench">Incline Dumbbell Bench</td></a>
+    <td><a href="/Workouts/Incline Dumbbell Press">Incline Dumbbell Press</td></a>
     <td>4</td>
     <td>8-12</td>
   </tr>
@@ -538,7 +538,7 @@ const FourWeight = `
       <td>8-12</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/Barbell Bent-over Rowing">Barbell Bent-over Rowing</td></a>
+      <td><a href="/Workouts/Barbell Bent-Over Rowing">Barbell Bent-Over Rowing</td></a>
       <td>4</td>
       <td>8-12</td>
     </tr>
@@ -641,27 +641,27 @@ const FiveCardio = `
       <td>10</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/Mountain Climbing">Mountain Climbing</td></a>
+      <td><a href="/Workouts/Mountain Climbers">Mountain Climbers</td></a>
       <td>2</td>
       <td>10/each side</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/High knees">High knees</td></a>
+      <td><a href="/Workouts/High Knees">High Knees</td></a>
       <td>2</td>
       <td>20-sec</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/Barbell Back Squats">Barbell Back Squats</td></a>
+      <td><a href="/Workouts/Barbell Back Squat">Barbell Back Squat</td></a>
       <td>4</td>
       <td>10-12</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/Incline Bench Press">Incline Bench Press</td></a>
+      <td><a href="/Workouts/Incline Barbell Bench">Incline Barbell Bench</td></a>
       <td>4</td>
       <td>10-12</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/One-arm Dumbbell Row">One-arm Dumbbell Row</td></a>
+      <td><a href="/Workouts/Single-arm Dumbbell Row">Single-arm Dumbbell Row</td></a>
       <td>3</td>
       <td>8-10</td>
     </tr>
@@ -714,7 +714,7 @@ const FiveCardio = `
       <td>10-12</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/Leg Press">Leg Press</td></a>
+      <td><a href="/Workouts/Machine Leg Press">Machine Leg Press</td></a>
       <td>3</td>
       <td>10-12</td>
     </tr>
@@ -741,7 +741,7 @@ const FiveCardio = `
     <td>10</td>
   </tr>
   <tr>
-    <td><a href="/Workouts/Mountain Climbing">Mountain Climbing</td></a>
+    <td><a href="/Workouts/Mountain Climbers">Mountain Climbers</td></a>
     <td>2</td>
     <td>10/each side</td>
   </tr>
@@ -751,7 +751,7 @@ const FiveCardio = `
     <td>20-sec</td>
   </tr>
   <tr>
-    <td><a href="/Workouts/Lying Leg Raises">Lying Leg Raises</td></a>
+    <td><a href="/Workouts/Lying Leg Raise">Lying Leg Raise</td></a>
     <td>2</td>
     <td>20-sec</td>
   </tr>
@@ -771,12 +771,12 @@ const FiveCardio = `
     <td>As long as possible</td>
   </tr>
   <tr>
-    <td><a href="/Workouts/Dumbbell lateral Raises">Dumbbell lateral Raises</td></a>
+    <td><a href="/Workouts/Dumbbell Lateral Raises">Dumbbell Lateral Raises</td></a>
     <td>3</td>
     <td>6-8</td>
   </tr>
   <tr>
-    <td><a href="/Workouts/Bent-over Barbell Row">Bent-over Barbell Row</td></a>
+    <td><a href="/Workouts/Barbell Bent-Over Rowing">Barbell Bent-Over Rowing</td></a>
     <td>3</td>
     <td>8-12</td>
   </tr>
@@ -812,7 +812,7 @@ const FiveCardio = `
     <td>15-sec</td>
   </tr>
   <tr>
-    <td><a href="/Workouts/Dumbbell Lateral Raise">Dumbbell Lateral Raise</td></a>
+    <td><a href="/Workouts/Dumbbell Lateral Raises">Dumbbell Lateral Raises</td></a>
     <td>3</td>
     <td>10</td>
   </tr>
@@ -822,7 +822,7 @@ const FiveCardio = `
     <td>10</td>
   </tr>
   <tr>
-    <td><a href="/Workouts/Bicep Curls">Bicep Curls</td></a>
+    <td><a href="/Workouts/Bicep Curl">Bicep Curl</td></a>
     <td>3</td>
     <td>10</td>
   </tr>
@@ -868,7 +868,7 @@ const FiveCardio = `
     <td>10</td>
   </tr>
   <tr>
-    <td><a href="/Workouts/Barbell Bent-Over Row">Barbell Bent-Over Row</td></a>
+    <td><a href="/Workouts/Barbell Bent-Over Rowing">Barbell Bent-Over Rowing</td></a>
     <td>3</td>
     <td>10</td>
   </tr>
@@ -898,7 +898,7 @@ const FiveWeight = `
     <td>10</td>
   </tr>
   <tr>
-    <td><a href="/Workouts/Incline Bench Press">Incline Bench Press</td></a>
+    <td><a href="/Workouts/Incline Barbell Bench">Incline Barbell Bench</td></a>
     <td>3</td>
     <td>10-12</td>
   </tr>
@@ -945,7 +945,7 @@ const FiveWeight = `
       <td>15, 12, 10</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/Leg Press">Leg Press</td></a>
+      <td><a href="/Workouts/Machine Leg Press">Machine Leg Press</td></a>
       <td>3</td>
       <td>12, 10, 8</td>
     </tr>
@@ -955,7 +955,7 @@ const FiveWeight = `
       <td>12, 10, 8</td>
     </tr>
     <tr>
-      <td><a href="/Workouts/Calf Raise">Calf Raise</td></a>
+      <td><a href="/Workouts/Calf Raises">Calf Raises</td></a>
       <td>3</td>
       <td>15, 12, 10</td>
     </tr>
@@ -1007,17 +1007,17 @@ const FiveWeight = `
     <td>12, 10, 8, 6</td>
   </tr>
   <tr>
-    <td><a href="/Workouts/Seated Cable Rowing">Seated Cable Rowing</td></a>
+    <td><a href="/Workouts/Seated Cable Row">Seated Cable Row</td></a>
     <td>4</td>
     <td>12, 10, 8, 6</td>
   </tr>
   <tr>
-    <td><a href="/Workouts/Bent-over Barbell Row">Bent-over Barbell Row</td></a>
+    <td><a href="/Workouts/Barbell Bent-Over Rowing">Barbell Bent-Over Rowing</td></a>
     <td>3</td>
     <td>12, 10, 8</td>
   </tr>
   <tr>
-    <td><a href="/Workouts/Cable Pulley Face pull">Cable Pulley Face pull</td></a>
+    <td><a href="/Workouts/Face Pull">Face Pull</td></a>
     <td>3</td>
     <td>10-12</td>
   </tr>
@@ -1043,7 +1043,7 @@ const FiveWeight = `
     </tr>
   </thead>
   <tr>
-    <td><a href="/Workouts/Incline Bench Press">Incline Bench Press</td></a>
+    <td><a href="/Workouts/Incline Barbell Bench">Incline Barbell Bench</td></a>
     <td>3</td>
     <td>12</td>
   </tr>
@@ -1099,7 +1099,7 @@ const FiveWeight = `
     <td>12, 10, 8</td>
   </tr>
   <tr>
-    <td><a href="/Workouts/One-arm Dumbbell Row">One-arm Dumbbell Row</td></a>
+    <td><a href="/Workouts/Single-arm Dumbbell Row">Single-arm Dumbbell Row</td></a>
     <td>3</td>
     <td>12, 10, 8</td>
   </tr>
