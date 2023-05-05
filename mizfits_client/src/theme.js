@@ -164,7 +164,7 @@ export const desktopNavstyles = {
     padding: 0,
   },
   navbarItem: {
-    margin: "25px 0",
+    margin: "15px 0",
   },
   navbarLink: {
     color: "black",
