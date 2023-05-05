@@ -54,7 +54,7 @@ export function Footer() {
         sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
       >
         <Typography variant="subtitle1">Contact</Typography>
-        <Typography variant="body2">mizfits@gmail.com</Typography>
+        <Typography variant="body2">mizfitdevs@gmail.com</Typography>
       </Box>
       <Box
         sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}

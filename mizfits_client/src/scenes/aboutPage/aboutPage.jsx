@@ -150,7 +150,7 @@ export default function AboutPage() {
               }}
             >
               <Link
-                href="mailto:mizfits@gmail.com"
+                href="mailto:mizfitdevs@gmail.com"
                 underline="none"
                 color="inherit"
               >
