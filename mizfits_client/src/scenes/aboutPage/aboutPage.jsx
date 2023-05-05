@@ -19,6 +19,8 @@ import JayS from "./images/JayS.jpg";
 import Jordan from "./images/Jordan.jpg";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import LockIcon from "@mui/icons-material/Lock";
+
 
 const team = [
   {
@@ -50,6 +52,7 @@ const team = [
 ];
 
 export default function AboutPage() {
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -200,6 +203,36 @@ export default function AboutPage() {
                 padding="1rem"
               >
                 MizFit GitHub Repository
+              </Link>
+
+            </Paper>
+            <Paper
+              sx={{
+                p: 2,
+                borderRadius: 2,
+                margin: "0.5rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                "&:hover": {
+                  bgcolor: "#f1f1f1",
+                },
+              }}
+            >
+              <Link
+                href="file:///Users/jaydolan/Downloads/SD-PRIVACYPOLICY-050523-1343.pdf"
+                underline="none"
+                color="inherit"
+              >
+                <LockIcon sx={{ marginBottom: 0 }} />
+              </Link>
+              <Link
+                href="file:///Users/jaydolan/Downloads/SD-PRIVACYPOLICY-050523-1343.pdf"
+                underline="none"
+                color="inherit"
+                padding="1rem"
+              >
+                Privacy Policy
               </Link>
             </Paper>
           </Link>
