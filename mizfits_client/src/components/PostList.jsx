@@ -8,7 +8,7 @@ const PostsList = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/');
+                const response = await axios.get('https://mizfit.azurewebsites.net/');
                 const sortedPosts = response.data.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
                 setPosts(sortedPosts);
             } catch (error) {

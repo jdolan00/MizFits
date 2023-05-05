@@ -67,11 +67,11 @@ export default function AboutPage() {
         </Typography>
         <Paper sx={{ p: 2, borderRadius: 2 }}>
           <Typography variant="body1" align="center">
-            MizFits is a fitness tracker and social platform for University of
-            Missouri-Columbia students. The purpose of MizFits is to serve as a
+            MizFit is a fitness tracker and social platform for University of
+            Missouri-Columbia students. The purpose of MizFit is to serve as a
             hub for logging and maintaing exercises at the gym, as well as
             sharing your tracked activities with others in the Mizzou community.
-            MizFits intends to solve the problem behind why maintaining
+            MizFit intends to solve the problem behind why maintaining
             consistent fitness and understanding different workout
             routines/methods is often difficult for young adults by providing
             information and habit tracking capabilities.
@@ -199,7 +199,7 @@ export default function AboutPage() {
                 color="inherit"
                 padding="1rem"
               >
-                MizFits GitHub Repository
+                MizFit GitHub Repository
               </Link>
             </Paper>
           </Link>
