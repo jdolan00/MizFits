@@ -63,7 +63,7 @@ export default function AboutPage() {
             fontWeight: 100,
           }}
         >
-          ABOUT MIZFITS
+          ABOUT MIZFIT
         </Typography>
         <Paper sx={{ p: 2, borderRadius: 2 }}>
           <Typography variant="body1" align="center">

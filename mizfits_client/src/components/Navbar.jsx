@@ -44,7 +44,7 @@ const Navbar = ({ isLoggedIn, onLogin }) => {
     >
       <div style={navbarLinkStyle}>
         <Bolt style={iconStyle} />
-        <Typography>Mizfits</Typography>
+        <Typography>Mizfit</Typography>
       </div>
       <ul
         style={
