@@ -1,0 +1,27 @@
+.column-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .column-list li {
+    font-size: 20px;
+    flex-basis: calc(33.33% - 1rem);
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    text-align: center;
+
+  }
+  
+  @media screen and (max-width: 800px) {
+    .column-list li {
+      flex-basis: calc(50% - 1rem);
+    }
+  }

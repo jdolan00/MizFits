@@ -7,11 +7,12 @@ import {
   PersonOutlineOutlined,
   InfoOutlined,
   FormatListBulleted,
-  Edit
+  Edit,
+  CancelPresentationOutlined,
 } from "@mui/icons-material";
 import { Typography, useMediaQuery, Button } from "@mui/material";
 import { desktopNavstyles, mobileNavstyles } from "../theme";
-
+import GroupIcon from '@mui/icons-material/Group';
 
 const Navbar = ({ isLoggedIn, onLogin }) => {
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
@@ -25,15 +26,15 @@ const Navbar = ({ isLoggedIn, onLogin }) => {
     ? desktopNavstyles.icon
     : mobileNavstyles.icon;
 
-
   // Check for token to deliver different Navbar depending on login status
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
 
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     onLogin(false);
-    navigate('/');
+    navigate("/");
+    window.location.reload();
   };
   return (
     <nav
@@ -43,9 +44,15 @@ const Navbar = ({ isLoggedIn, onLogin }) => {
     >
       <div style={navbarLinkStyle}>
         <Bolt style={iconStyle} />
-        <Typography>Mizfits</Typography>
+        <Typography>Mizfit</Typography>
       </div>
-      <ul style={isNonMobileScreens ? desktopNavstyles.navbarList : mobileNavstyles.navbarList}>
+      <ul
+        style={
+          isNonMobileScreens
+            ? desktopNavstyles.navbarList
+            : mobileNavstyles.navbarList
+        }
+      >
         {token ? (
           <>
             <div style={navbarItemStyle}>
@@ -59,13 +66,13 @@ const Navbar = ({ isLoggedIn, onLogin }) => {
               </Link>
             </div>
             <div style={navbarItemStyle}>
-              <Button onClick={handleLogout} style={navbarLinkStyle}>
-                Logout
-              </Button>
-            </div>
-            <div style={navbarItemStyle}>
               <Link to="/profile" style={navbarLinkStyle}>
                 <PersonOutlineOutlined style={iconStyle} />
+              </Link>
+            </div>
+            <div style={navbarItemStyle}>
+              <Link to="/feed" style={navbarLinkStyle}>
+                <GroupIcon style={iconStyle} />
               </Link>
             </div>
             <div style={navbarItemStyle}>
@@ -73,30 +80,32 @@ const Navbar = ({ isLoggedIn, onLogin }) => {
                 <FitnessCenterOutlined style={iconStyle} />
               </Link>
             </div>
+
             <div style={navbarItemStyle}>
               <Link to="/workouts" style={navbarLinkStyle}>
                 <FormatListBulleted style={iconStyle} />
               </Link>
             </div>
+
             <div style={navbarItemStyle}>
               <Link to="/about" style={navbarLinkStyle}>
                 <InfoOutlined style={iconStyle} />
               </Link>
-
-            </div>
+              </div>
+              
+              <div style={navbarItemStyle}>
+                <Button onClick={handleLogout} style={navbarLinkStyle}>
+                  <CancelPresentationOutlined style={iconStyle} />
+                </Button>
+              </div>
 
           </>
         ) : (
           <>
+
             <div style={navbarItemStyle}>
               <Link to="/" style={navbarLinkStyle}>
                 <CottageOutlined style={iconStyle} />
-              </Link>
-            </div>
-
-            <div style={navbarItemStyle}>
-              <Link to="/login" style={navbarLinkStyle}>
-                Login
               </Link>
             </div>
 
