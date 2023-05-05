@@ -8,7 +8,7 @@ const PostForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const token = localStorage.getItem('auth-token'); // Replace with the actual method you use to store the token
+        localStorage.setItem('auth-token', token);
         if (!token) {
             console.error('No token found');
             return;
@@ -52,9 +52,6 @@ const PostForm = () => {
 
     return (
         <Box sx={formContainerStyle}>
-            <Typography variant="h6">
-                {user.firstName} {user.lastName} ({user.email})
-            </Typography>
             <form onSubmit={handleSubmit}>
                 <Box sx={inputContainerStyle}>
                     <TextField

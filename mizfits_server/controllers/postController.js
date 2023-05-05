@@ -6,12 +6,12 @@ export const createPost = async (req, res) => {
   const { content } = req.body;
   const userId = req.userId;
 
-  console.log('User ID:', userId); // Add this line
+  console.log('User ID:', userId);
 
   try {
     const user = await User.findById(userId);
 
-    console.log('User:', user); // Add this line
+    console.log('User:', user);
 
     const newId = new mongoose.Types.ObjectId();
 
@@ -26,7 +26,7 @@ export const createPost = async (req, res) => {
     await newPost.save();
     res.status(201).json(newPost);
   } catch (error) {
-    console.error('Error in createPost:', error); // Update this line
+    console.error('Error in createPost:', error);
     res.status(500).json({ message: "Error creating post" });
   }
 };
