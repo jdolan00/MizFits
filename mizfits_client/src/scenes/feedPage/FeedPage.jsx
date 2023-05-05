@@ -3,7 +3,7 @@ import { CssBaseline, Container, Typography, Box } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import PostForm from 'components/UserPost';
 import PostsList from 'components/PostList';
-import {theme} from '../../theme';
+import { theme } from '../../theme';
 
 const FeedPage = () => {
     const headerContainerStyle = {
@@ -19,12 +19,11 @@ const FeedPage = () => {
                 <Box sx={headerContainerStyle}>
                     <Container maxWidth="md">
                         <Typography variant="h2" align="center" gutterBottom>
-                           Social feed
+                            Social feed
                         </Typography>
                     </Container>
                 </Box>
                 <Container maxWidth="md">
-                    <PostForm />
                     <PostsList />
                 </Container>
             </ThemeProvider>

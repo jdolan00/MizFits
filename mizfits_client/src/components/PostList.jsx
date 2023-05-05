@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Box, Card, CardContent, Typography } from '@mui/material';
+import PostForm from './UserPost';
 
 const PostsList = () => {
     const [posts, setPosts] = useState([]);
@@ -19,8 +20,13 @@ const PostsList = () => {
         fetchPosts();
     }, []);
 
+    const addNewPost = (newPost) => {
+        setPosts((prevPosts) => [newPost, ...prevPosts]);
+    };
+
     return (
         <Box>
+            <PostForm onPostSubmit={addNewPost} />
             {posts.map((post) => (
                 <Card key={post._id} sx={{ marginBottom: 2, backgroundColor: '#f5f5f5', borderRadius: '5px' }}>
                     <CardContent>

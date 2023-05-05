@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Button, TextField, Box, Typography } from "@mui/material";
+import { Button, TextField, Box } from "@mui/material";
 
-const PostForm = () => {
+const PostForm = ({ onPostSubmit }) => {
     const [post, setPost] = useState("");
 
     const handleSubmit = async (e) => {
@@ -20,7 +20,10 @@ const PostForm = () => {
                 },
             });
 
-            console.log('Post created:', response.data);
+            if (response.data) {
+                console.log('Post created:', response.data);
+                onPostSubmit(response.data);
+            }
         } catch (error) {
             console.error('Error creating post:', error);
         }
